@@ -1,0 +1,13 @@
+# Target labels
+ PioasmBuild
+# Source files and their labels
+/Users/speedhacker/pico/devs/first/build/CMakeFiles/PioasmBuild
+/Users/speedhacker/pico/devs/first/build/CMakeFiles/PioasmBuild.rule
+/Users/speedhacker/pico/devs/first/build/CMakeFiles/PioasmBuild-complete.rule
+/Users/speedhacker/pico/devs/first/build/pioasm/src/PioasmBuild-stamp/PioasmBuild-build.rule
+/Users/speedhacker/pico/devs/first/build/pioasm/src/PioasmBuild-stamp/PioasmBuild-configure.rule
+/Users/speedhacker/pico/devs/first/build/pioasm/src/PioasmBuild-stamp/PioasmBuild-download.rule
+/Users/speedhacker/pico/devs/first/build/pioasm/src/PioasmBuild-stamp/PioasmBuild-install.rule
+/Users/speedhacker/pico/devs/first/build/pioasm/src/PioasmBuild-stamp/PioasmBuild-mkdir.rule
+/Users/speedhacker/pico/devs/first/build/pioasm/src/PioasmBuild-stamp/PioasmBuild-patch.rule
+/Users/speedhacker/pico/devs/first/build/pioasm/src/PioasmBuild-stamp/PioasmBuild-update.rule
