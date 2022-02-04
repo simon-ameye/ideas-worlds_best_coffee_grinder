@@ -51,7 +51,7 @@ void Stepper::set_speed(int speed_rpm)
 		Stepper::enable();
 		Stepper::_set_direction(speed_rpm);
 	}
-	else if ((speed_rpm <= 0) != (this->_speed_rpm <= 0))
+	else if (speed_rpm != 0 && this->_speed_rpm != 0 && (speed_rpm < 0) != (this->_speed_rpm < 0))
 	{
 		std::cout << "oposed speeds, first ramp to 0\n";
 		Stepper::_speed_ramp(0);
@@ -79,14 +79,14 @@ void Stepper::_speed_ramp(int speed_rpm)
 	total_time = (float)abs(speed_rpm - this->_speed_rpm) / (float)this->_accell_rpm_s;
 	sleep_per_step_us = total_time * 1000000 / nb_of_steps;
 
-	std::cout << "lets speed ramp with data : \n";
-	std::cout << "speed_rpm : " << speed_rpm << std::endl;
-	std::cout << "start_freq_s : " << start_freq_s << std::endl;
-	std::cout << "end_freq_s : " << end_freq_s << std::endl;
-	std::cout << "sleep_per_step_us : " << sleep_per_step_us << std::endl;
-	std::cout << "nb_of_steps : " << nb_of_steps << std::endl;
-	std::cout << "total_time : " << total_time << std::endl;
-	std::cout << "_speed_rpm : " << this->_speed_rpm << std::endl;
+	std::cout << "    lets speed ramp with data : \n";
+	std::cout << "    speed_rpm : " << speed_rpm << std::endl;
+	std::cout << "    start_freq_s : " << start_freq_s << std::endl;
+	std::cout << "    end_freq_s : " << end_freq_s << std::endl;
+	std::cout << "    sleep_per_step_us : " << sleep_per_step_us << std::endl;
+	std::cout << "    nb_of_steps : " << nb_of_steps << std::endl;
+	std::cout << "    total_time : " << total_time << std::endl;
+	std::cout << "    _speed_rpm : " << this->_speed_rpm << std::endl;
 	std::cout << std::endl;
 
 	if (start_freq_s < end_freq_s)
@@ -149,13 +149,13 @@ void Stepper::set_accell(int accell_rpm_s)
 
 void Stepper::print_status(void)
 {
-	std::cout << "Stepper configuration :" << std::endl;
-	std::cout << "_channel : "		<< this->_channel		<< std::endl;
-	std::cout << "_slice_num : "	<< this->_slice_num		<< std::endl;
-	std::cout << "_pul_gpio : "		<< this->_pul_gpio		<< std::endl;
-	std::cout << "_ena_gpio : "		<< this->_ena_gpio		<< std::endl;
-	std::cout << "_dir_gpio : "		<< this->_dir_gpio		<< std::endl;
-	std::cout << "_accell_rpm_s : "	<< this->_accell_rpm_s	<< std::endl;
-	std::cout << "_speed_rpm : "	<< this->_speed_rpm		<< std::endl;
+	std::cout << "    Stepper configuration :" << std::endl;
+	std::cout << "    _channel : "		<< this->_channel		<< std::endl;
+	std::cout << "    _slice_num : "	<< this->_slice_num		<< std::endl;
+	std::cout << "    _pul_gpio : "		<< this->_pul_gpio		<< std::endl;
+	std::cout << "    _ena_gpio : "		<< this->_ena_gpio		<< std::endl;
+	std::cout << "    _dir_gpio : "		<< this->_dir_gpio		<< std::endl;
+	std::cout << "    _accell_rpm_s : "	<< this->_accell_rpm_s	<< std::endl;
+	std::cout << "    _speed_rpm : "	<< this->_speed_rpm		<< std::endl;
 	std::cout << std::endl;
 }

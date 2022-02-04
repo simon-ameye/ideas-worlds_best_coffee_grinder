@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/04 15:13:08 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/04 15:57:04 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,19 +53,47 @@ int main()
 // test motor
 	Stepper motor(0, 25, 13);
 	printf("$$$$$$$$$$$$$$Sepper created\n");
-	motor.print_status();
-	sleep_ms(1000);
 
+
+/*
 	motor.set_speed(500);
 	printf("$$$$$$$$$$$$$$Speed set\n");
-	motor.print_status();
+	//motor.print_status();
 	sleep_ms(1000);
 
-	motor.set_accell(200);
-	printf("$$$$$$$$$$$$$$Accell set\n");
-	motor.print_status();
+*/
+
+	motor.set_speed(-200);
+	printf("$$$$$$$$$$$$$$Speed set\n");
+	//motor.print_status();
 	sleep_ms(1000);
 
+	motor.set_accell(1000);
+	printf("$$$$$$$$$$$$$$Speed set\n");
+	//motor.print_status();
+	sleep_ms(1000);
+
+	motor.set_speed(2000);
+	printf("$$$$$$$$$$$$$$Speed set\n");
+	//motor.print_status();
+	sleep_ms(1000);
+
+	motor.set_speed(0);
+	printf("$$$$$$$$$$$$$$Speed set\n");
+	//motor.print_status();
+	sleep_ms(1000);
+
+	motor.set_speed(-200);
+	printf("$$$$$$$$$$$$$$Speed set\n");
+	//motor.print_status();
+	sleep_ms(1000);
+
+	motor.set_accell(100);
+	printf("$$$$$$$$$$$$$$Speed set\n");
+	//motor.print_status();
+	sleep_ms(1000);
+
+/*
 	motor.set_speed(-200);
 	printf("$$$$$$$$$$$$$$Speed set\n");
 	motor.print_status();
@@ -96,6 +124,7 @@ int main()
 	motor.set_speed(50000);
 	printf("$$$$$$$$$$$$$$Speed set44444444444\n");
 	motor.set_speed(-50000);
+	*/
 
 // test user input
 	UserInput userinput;
