@@ -15,7 +15,7 @@
 Stepper::Stepper(uint pul_gpio, uint ena_gpio, uint dir_gpio)
 {
 	std::cout << "Stepper constructor called\n";
-	this->_accell_rpm_s = 500;
+	this->_accell_rpm_s = DEFAULT_ACCELL_S;
 	this->_speed_rpm = 0;
 
 	this->_pul_gpio = pul_gpio;

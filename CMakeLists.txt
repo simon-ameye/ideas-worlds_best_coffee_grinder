@@ -16,6 +16,8 @@ add_executable(
 	serial_print.hpp
 	Stepper.cpp
 	Stepper.hpp
+	UserInput.hpp
+	UserInput.cpp
 )
 
 pico_add_extra_outputs(pico_test)

@@ -26,6 +26,7 @@
 //motor data
 #define STEPS_PER_REV 200
 #define MAX_MOTOR_RPM 10000
+#define DEFAULT_ACCELL_S 500
 
 class Stepper
 {

@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/03 23:35:47 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/04 15:13:08 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@
 #include <cstdlib>
 //#include <unistd.h>
 
-//#include "pico_explorer.hpp"
-//#include "font8_data.hpp"
-#include "serial_print.hpp"
+#include "pico_explorer.hpp"
+#include "font8_data.hpp"
 //#include "hardware/gpio.h"
 //#include "hardware/pwm.h"
 
@@ -27,12 +26,23 @@
 //#include "hardware/pio.h"
 //#include "hardware/clocks.h"
 //#include "blink.pio.h"
+#include "serial_print.hpp"
 #include "Stepper.hpp"
+#include "UserInput.hpp"
 
-//using namespace pimoroni;
+using namespace pimoroni;
 
 int main()
 {
+
+// init pico explorer
+	uint16_t buffer[PicoExplorer::WIDTH * PicoExplorer::HEIGHT];
+	PicoExplorer pico_explorer(buffer);
+	pico_explorer.init();
+	pico_explorer.set_font(&font8);
+	pico_explorer.set_pen(0, 0, 0);
+	pico_explorer.clear();
+	pico_explorer.update();
 
 // init serial
 	serial_print_init();
@@ -40,8 +50,7 @@ int main()
 	for (int k = 0; k < 100; k++)
 		printf("$$$$$$$$$$$$$$$$$First print$$$$$$$$$$$$$$$$\n");
 
-// test audio
-
+// test motor
 	Stepper motor(0, 25, 13);
 	printf("$$$$$$$$$$$$$$Sepper created\n");
 	motor.print_status();
@@ -87,25 +96,13 @@ int main()
 	motor.set_speed(50000);
 	printf("$$$$$$$$$$$$$$Speed set44444444444\n");
 	motor.set_speed(-50000);
-/*
 
+// test user input
+	UserInput userinput;
+	float f;
+	f = userinput.get_float(9.00, 0.01, "Coffee mass", "g", pico_explorer);
+	std::cout << "entered mass : " << f << std::endl;
 
-
-	uint16_t buffer[PicoExplorer::WIDTH * PicoExplorer::HEIGHT];
-	PicoExplorer pico_explorer(buffer);
-	pico_explorer.init();
-	//pico_explorer.set_font(&font8);
-	uint32_t i = 0;
-	while(true)
-	{
-		pico_explorer.set_pen(120, 40, 60);
-		pico_explorer.clear();	
-		pico_explorer.set_pen(255, 255, 255);
-		pico_explorer.text("HHHHHHHEEEEEYYYYYY", Point(10, 10), 220);
-		pico_explorer.update();
-		printf("frame %d\n", i);
-		i++;
-	}
-	return 0;
-*/
+	f = userinput.get_float(10.00, 0.01, "Calib mass", "g", pico_explorer);
+	std::cout << "entered mass : " << f << std::endl;;
 }

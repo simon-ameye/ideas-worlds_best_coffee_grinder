@@ -329,6 +329,30 @@ Stepper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Stepper.cpp.s
 .PHONY : Stepper.cpp.s
 
+UserInput.obj: UserInput.cpp.obj
+.PHONY : UserInput.obj
+
+# target to build an object file
+UserInput.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/UserInput.cpp.obj
+.PHONY : UserInput.cpp.obj
+
+UserInput.i: UserInput.cpp.i
+.PHONY : UserInput.i
+
+# target to preprocess a source file
+UserInput.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/UserInput.cpp.i
+.PHONY : UserInput.cpp.i
+
+UserInput.s: UserInput.cpp.s
+.PHONY : UserInput.s
+
+# target to generate assembly for a file
+UserInput.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/UserInput.cpp.s
+.PHONY : UserInput.cpp.s
+
 Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 .PHONY : Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
 
@@ -2003,6 +2027,9 @@ help:
 	@echo "... Stepper.obj"
 	@echo "... Stepper.i"
 	@echo "... Stepper.s"
+	@echo "... UserInput.obj"
+	@echo "... UserInput.i"
+	@echo "... UserInput.s"
 	@echo "... Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
 	@echo "... Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"
