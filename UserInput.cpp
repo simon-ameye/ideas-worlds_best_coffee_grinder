@@ -19,6 +19,7 @@ float UserInput::get_float(float init_value, float step, std::string prt, std::s
 	bool pressed = 0;
 	bool waspressdebefore = 0;
 	int i = 0;
+	PicoExplorer &px = pico_explorer;
 	sleep_ms(300);
 	while (1)
 	{
@@ -28,15 +29,15 @@ float UserInput::get_float(float init_value, float step, std::string prt, std::s
 		std::string str = strvalstream.str();
 
 		//std::cout<<PicoExplorer::WIDTH<<"  "<<PicoExplorer::HEIGHT;
-		pico_explorer.set_pen(i * 2 % 160, i * 4 % 160, i * 8 % 160);
-		pico_explorer.clear();
-		pico_explorer.set_pen(255, 255, 255);
-		pico_explorer.text(prt , Point(000,  10), 220, 4);
-		pico_explorer.text(str , Point(000,  90), 220, 9);
-		pico_explorer.text("+" , Point(200,  30), 220, 10);
-		pico_explorer.text("-" , Point(200, 140), 220, 10);
-		pico_explorer.text("ok", Point(000, 170), 220, 4);
-		pico_explorer.update();
+		px.set_pen(i * 2 % 160, i * 4 % 160, i * 8 % 160);
+		px.clear();
+		px.set_pen(255, 255, 255);
+		px.text(prt , Point(000,  10), 220, 4);
+		px.text(str , Point(000,  90), 220, 9);
+		px.text("+" , Point(200,  30), 220, 10);
+		px.text("-" , Point(200, 140), 220, 10);
+		px.text("ok", Point(000, 170), 220, 4);
+		px.update();
 
 		if (pressed == 1 && waspressdebefore == 0)
 		{
@@ -45,11 +46,11 @@ float UserInput::get_float(float init_value, float step, std::string prt, std::s
 		}
 		pressed = 1;
 		i++;
-		if(pico_explorer.is_pressed(pico_explorer.X))
+		if(px.is_pressed(px.X))
 			res += step;
-		else if(pico_explorer.is_pressed(pico_explorer.Y))
+		else if(px.is_pressed(px.Y))
 			res -= step;
-		else if(pico_explorer.is_pressed(pico_explorer.B))
+		else if(px.is_pressed(px.B))
 			break ;
 		else
 		{

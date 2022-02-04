@@ -25,6 +25,7 @@ class UserInput
 {
 	public:
 	float get_float(float init_value, float step, std::string prompt, std::string unit, PicoExplorer pico_explorer);
+
 	private:
 };
 

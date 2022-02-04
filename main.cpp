@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/04 15:57:04 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/04 16:47:12 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,12 @@ int main()
 	//motor.print_status();
 	sleep_ms(1000);
 
-	motor.set_accell(100);
-	printf("$$$$$$$$$$$$$$Speed set\n");
-	//motor.print_status();
-	sleep_ms(1000);
+	motor.set_speed(-20);
+	motor.set_accell(10);
+	motor.set_speed(20);
+	motor.set_speed(-20);
+	motor.set_speed(20);
+	motor.set_speed(0);
 
 /*
 	motor.set_speed(-200);
@@ -128,6 +130,7 @@ int main()
 
 // test user input
 	UserInput userinput;
+	//userinput.init_explorer(pico_explorer);
 	float f;
 	f = userinput.get_float(9.00, 0.01, "Coffee mass", "g", pico_explorer);
 	std::cout << "entered mass : " << f << std::endl;
