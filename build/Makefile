@@ -329,29 +329,29 @@ Stepper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Stepper.cpp.s
 .PHONY : Stepper.cpp.s
 
-UserInput.obj: UserInput.cpp.obj
-.PHONY : UserInput.obj
+Userinterface.obj: Userinterface.cpp.obj
+.PHONY : Userinterface.obj
 
 # target to build an object file
-UserInput.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/UserInput.cpp.obj
-.PHONY : UserInput.cpp.obj
+Userinterface.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Userinterface.cpp.obj
+.PHONY : Userinterface.cpp.obj
 
-UserInput.i: UserInput.cpp.i
-.PHONY : UserInput.i
+Userinterface.i: Userinterface.cpp.i
+.PHONY : Userinterface.i
 
 # target to preprocess a source file
-UserInput.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/UserInput.cpp.i
-.PHONY : UserInput.cpp.i
+Userinterface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Userinterface.cpp.i
+.PHONY : Userinterface.cpp.i
 
-UserInput.s: UserInput.cpp.s
-.PHONY : UserInput.s
+Userinterface.s: Userinterface.cpp.s
+.PHONY : Userinterface.s
 
 # target to generate assembly for a file
-UserInput.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/UserInput.cpp.s
-.PHONY : UserInput.cpp.s
+Userinterface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Userinterface.cpp.s
+.PHONY : Userinterface.cpp.s
 
 Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 .PHONY : Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
@@ -2027,9 +2027,9 @@ help:
 	@echo "... Stepper.obj"
 	@echo "... Stepper.i"
 	@echo "... Stepper.s"
-	@echo "... UserInput.obj"
-	@echo "... UserInput.i"
-	@echo "... UserInput.s"
+	@echo "... Userinterface.obj"
+	@echo "... Userinterface.i"
+	@echo "... Userinterface.s"
 	@echo "... Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
 	@echo "... Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"

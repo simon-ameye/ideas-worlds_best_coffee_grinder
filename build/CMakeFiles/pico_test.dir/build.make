@@ -111,19 +111,19 @@ CMakeFiles/pico_test.dir/Stepper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pico_test.dir/Stepper.cpp.s"
 	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/speedhacker/pico/devs/first/Stepper.cpp -o CMakeFiles/pico_test.dir/Stepper.cpp.s
 
-CMakeFiles/pico_test.dir/UserInput.cpp.obj: CMakeFiles/pico_test.dir/flags.make
-CMakeFiles/pico_test.dir/UserInput.cpp.obj: ../UserInput.cpp
-CMakeFiles/pico_test.dir/UserInput.cpp.obj: CMakeFiles/pico_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/pico_test.dir/UserInput.cpp.obj"
-	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pico_test.dir/UserInput.cpp.obj -MF CMakeFiles/pico_test.dir/UserInput.cpp.obj.d -o CMakeFiles/pico_test.dir/UserInput.cpp.obj -c /Users/speedhacker/pico/devs/first/UserInput.cpp
+CMakeFiles/pico_test.dir/Userinterface.cpp.obj: CMakeFiles/pico_test.dir/flags.make
+CMakeFiles/pico_test.dir/Userinterface.cpp.obj: ../Userinterface.cpp
+CMakeFiles/pico_test.dir/Userinterface.cpp.obj: CMakeFiles/pico_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/pico_test.dir/Userinterface.cpp.obj"
+	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pico_test.dir/Userinterface.cpp.obj -MF CMakeFiles/pico_test.dir/Userinterface.cpp.obj.d -o CMakeFiles/pico_test.dir/Userinterface.cpp.obj -c /Users/speedhacker/pico/devs/first/Userinterface.cpp
 
-CMakeFiles/pico_test.dir/UserInput.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pico_test.dir/UserInput.cpp.i"
-	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/speedhacker/pico/devs/first/UserInput.cpp > CMakeFiles/pico_test.dir/UserInput.cpp.i
+CMakeFiles/pico_test.dir/Userinterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pico_test.dir/Userinterface.cpp.i"
+	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/speedhacker/pico/devs/first/Userinterface.cpp > CMakeFiles/pico_test.dir/Userinterface.cpp.i
 
-CMakeFiles/pico_test.dir/UserInput.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pico_test.dir/UserInput.cpp.s"
-	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/speedhacker/pico/devs/first/UserInput.cpp -o CMakeFiles/pico_test.dir/UserInput.cpp.s
+CMakeFiles/pico_test.dir/Userinterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pico_test.dir/Userinterface.cpp.s"
+	/opt/homebrew/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/speedhacker/pico/devs/first/Userinterface.cpp -o CMakeFiles/pico_test.dir/Userinterface.cpp.s
 
 CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: CMakeFiles/pico_test.dir/flags.make
 CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj: /Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c
@@ -1155,7 +1155,7 @@ pico_test_OBJECTS = \
 "CMakeFiles/pico_test.dir/main.cpp.obj" \
 "CMakeFiles/pico_test.dir/serial_print.cpp.obj" \
 "CMakeFiles/pico_test.dir/Stepper.cpp.obj" \
-"CMakeFiles/pico_test.dir/UserInput.cpp.obj" \
+"CMakeFiles/pico_test.dir/Userinterface.cpp.obj" \
 "CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj" \
 "CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj" \
 "CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj" \
@@ -1237,7 +1237,7 @@ pico_test_EXTERNAL_OBJECTS =
 pico_test.elf: CMakeFiles/pico_test.dir/main.cpp.obj
 pico_test.elf: CMakeFiles/pico_test.dir/serial_print.cpp.obj
 pico_test.elf: CMakeFiles/pico_test.dir/Stepper.cpp.obj
-pico_test.elf: CMakeFiles/pico_test.dir/UserInput.cpp.obj
+pico_test.elf: CMakeFiles/pico_test.dir/Userinterface.cpp.obj
 pico_test.elf: CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 pico_test.elf: CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 pico_test.elf: CMakeFiles/pico_test.dir/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj

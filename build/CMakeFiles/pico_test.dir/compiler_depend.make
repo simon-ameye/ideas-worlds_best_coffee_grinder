@@ -176,8 +176,8 @@ CMakeFiles/pico_test.dir/Stepper.cpp.obj: ../Stepper.cpp \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/istream \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/istream.tcc
 
-CMakeFiles/pico_test.dir/UserInput.cpp.obj: ../UserInput.cpp \
-  ../UserInput.hpp \
+CMakeFiles/pico_test.dir/Userinterface.cpp.obj: ../Userinterface.cpp \
+  ../UserInterface.hpp \
   /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_explorer/pico_explorer.hpp \
   /Users/speedhacker/pico/libs/pimoroni-pico/drivers/st7789/st7789.hpp \
   /Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_spi/include/hardware/spi.h \
@@ -349,7 +349,7 @@ CMakeFiles/pico_test.dir/UserInput.cpp.obj: ../UserInput.cpp \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/vector.tcc \
   /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font6_data.hpp \
   /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font.hpp \
-  ../serial_print.hpp \
+  /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font8_data.hpp \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/iomanip \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/ios_base.h \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/locale_classes.h \
@@ -3788,7 +3788,6 @@ CMakeFiles/pico_test.dir/main.cpp.obj: ../main.cpp \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/limits \
   /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font6_data.hpp \
   /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font.hpp \
-  /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font8_data.hpp \
   ../serial_print.hpp \
   ../Stepper.hpp \
   /Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_pwm/include/hardware/pwm.h \
@@ -3817,7 +3816,8 @@ CMakeFiles/pico_test.dir/main.cpp.obj: ../main.cpp \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/ostream.tcc \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/istream \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/istream.tcc \
-  ../UserInput.hpp \
+  ../UserInterface.hpp \
+  /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font8_data.hpp \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/iomanip \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/locale \
   /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/locale_facets_nonio.h \
@@ -3944,10 +3944,6 @@ CMakeFiles/pico_test.dir/serial_print.cpp.obj: ../serial_print.cpp \
 /Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c:
 
 /Users/speedhacker/pico/libs/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/psm.h:
-
-/Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font8_data.hpp:
-
-/Users/speedhacker/pico/libs/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/vreg_and_chip_reset.h:
 
 /Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_pll/pll.c:
 
@@ -4083,6 +4079,10 @@ CMakeFiles/pico_test.dir/serial_print.cpp.obj: ../serial_print.cpp \
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/sstream.tcc:
 
+../serial_print.hpp:
+
+/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/sstream:
+
 /Users/speedhacker/pico/libs/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/xosc.h:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/quoted_string.h:
@@ -4105,9 +4105,9 @@ CMakeFiles/pico_test.dir/serial_print.cpp.obj: ../serial_print.cpp \
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/iomanip:
 
-/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/sstream:
+/Users/speedhacker/pico/libs/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/vreg_and_chip_reset.h:
 
-../serial_print.hpp:
+/Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_graphics/font8_data.hpp:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/inttypes.h:
 
@@ -4136,8 +4136,6 @@ CMakeFiles/pico_test.dir/serial_print.cpp.obj: ../serial_print.cpp \
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/lib/gcc/arm-none-eabi/10.3.1/include-fixed/limits.h:
 
 /Users/speedhacker/pico/libs/pico-sdk/src/boards/include/boards/pico.h:
-
-../UserInput.hpp:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/uniform_int_dist.h:
 
@@ -4182,14 +4180,6 @@ generated/pico_base/pico/config_autogen.h:
 /Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/tusb_option.h:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/system_error:
-
-/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_sync/sync.c:
-
-/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/streambuf.tcc:
-
-/Users/speedhacker/pico/libs/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h:
-
-../UserInput.cpp:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/locale_classes.tcc:
 
@@ -4319,6 +4309,10 @@ generated/pico_base/pico/config_autogen.h:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/cstdint:
 
+/Users/speedhacker/pico/libs/pico-sdk/src/common/pico_time/include/pico/time.h:
+
+../Userinterface.cpp:
+
 /Users/speedhacker/pico/libs/pimoroni-pico/libraries/pico_explorer/pico_explorer.hpp:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/predefined_ops.h:
@@ -4342,6 +4336,12 @@ generated/pico_base/pico/config_autogen.h:
 /Users/speedhacker/pico/libs/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/type_traits:
+
+/Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_sync/sync.c:
+
+/opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/streambuf.tcc:
+
+/Users/speedhacker/pico/libs/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h:
 
 /Users/speedhacker/pico/libs/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pio.h:
 
@@ -4617,6 +4617,8 @@ generated/pico_base/pico/version.h:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_iterator_base_funcs.h:
 
+../UserInterface.hpp:
+
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/_newlib_version.h:
 
 /Users/speedhacker/pico/libs/pico-sdk/src/rp2_common/hardware_pwm/include/hardware/pwm.h:
@@ -4648,8 +4650,6 @@ generated/pico_base/pico/version.h:
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/arm-none-eabi/thumb/v6-m/nofp/bits/ctype_inline.h:
 
 /opt/homebrew/Cellar/arm-none-eabi-gcc/10.3-2021.07/gcc/arm-none-eabi/include/c++/10.3.1/bits/stl_algobase.h:
-
-/Users/speedhacker/pico/libs/pico-sdk/src/common/pico_time/include/pico/time.h:
 
 ../Stepper.hpp:
 

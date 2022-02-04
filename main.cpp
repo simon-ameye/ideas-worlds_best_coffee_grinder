@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/04 16:47:12 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/04 17:07:48 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 //#include <unistd.h>
 
 #include "pico_explorer.hpp"
-#include "font8_data.hpp"
 //#include "hardware/gpio.h"
 //#include "hardware/pwm.h"
 
@@ -28,7 +27,7 @@
 //#include "blink.pio.h"
 #include "serial_print.hpp"
 #include "Stepper.hpp"
-#include "UserInput.hpp"
+#include "UserInterface.hpp"
 
 using namespace pimoroni;
 
@@ -36,6 +35,7 @@ int main()
 {
 
 // init pico explorer
+/*
 	uint16_t buffer[PicoExplorer::WIDTH * PicoExplorer::HEIGHT];
 	PicoExplorer pico_explorer(buffer);
 	pico_explorer.init();
@@ -43,6 +43,7 @@ int main()
 	pico_explorer.set_pen(0, 0, 0);
 	pico_explorer.clear();
 	pico_explorer.update();
+*/
 
 // init serial
 	serial_print_init();
@@ -129,12 +130,12 @@ int main()
 	*/
 
 // test user input
-	UserInput userinput;
+	UserInterface interface;
 	//userinput.init_explorer(pico_explorer);
 	float f;
-	f = userinput.get_float(9.00, 0.01, "Coffee mass", "g", pico_explorer);
+	f = interface.get_float(9.00, 0.01, "Coffee mass", "g");
 	std::cout << "entered mass : " << f << std::endl;
 
-	f = userinput.get_float(10.00, 0.01, "Calib mass", "g", pico_explorer);
+	f = interface.get_float(10.00, 0.01, "Calib mass", "g");
 	std::cout << "entered mass : " << f << std::endl;;
 }
