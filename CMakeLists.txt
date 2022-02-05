@@ -1,16 +1,14 @@
-#cmake .. && make && cp pico_test.uf2 /Volumes/RPI-RP2 && minicom -o -D /dev/cu.usbmodem1101
-
 cmake_minimum_required(VERSION 3.12)
 
 include(pico_sdk_import.cmake)
 include(pimoroni_pico_import.cmake)
 
-project(pico_test)
+project(Grinder)
 
 pico_sdk_init()
 
 add_executable(
-	pico_test
+	Grinder
 	main.cpp
 	serial_print.cpp
 	serial_print.hpp
@@ -24,14 +22,10 @@ add_executable(
 	Balance.hpp
 )
 
-pico_add_extra_outputs(pico_test)
-
-# Create C header file with the name <pio program>.pio.h
-pico_generate_pio_header(${PROJECT_NAME}  
-        ${CMAKE_CURRENT_LIST_DIR}/blink.pio)
+pico_add_extra_outputs(Grinder)
 
 #target_link_libraries(explorer pico_stdlib pico_explorer msa301)
-target_link_libraries(pico_test pico_stdlib pico_explorer hardware_pio)
+target_link_libraries(Grinder pico_stdlib pico_explorer hardware_pio)
 
 add_subdirectory(/Users/speedhacker/pico/libs/pimoroni-pico/common pimoroni-common)
 add_subdirectory(/Users/speedhacker/pico/libs/pimoroni-pico/drivers pimoroni-drivers)
