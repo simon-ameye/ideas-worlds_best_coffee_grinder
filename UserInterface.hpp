@@ -21,18 +21,16 @@
 
 using namespace pimoroni;
 
-uint16_t buffer[PicoExplorer::WIDTH * PicoExplorer::HEIGHT];
-
-
-class UserInterface // PUTAIN IMPOSSIBLE DE DECLARER CETTE CLASSE COMME CA
+class UserInterface// : pimoroni::PicoExplorer// PUTAIN IMPOSSIBLE DE DECLARER CETTE CLASSE COMME CA
 {
 	public:
 	UserInterface(void);
+	~UserInterface(void);
 	float get_float(float init_value, float step, std::string prompt, std::string unit);
 
 	private:
-	PicoExplorer pimoroni::_pico_explorer(uint16_t buffer);
-	//PicoExplorer _pico_explorer(buffer);
+	//PicoExplorer pimoroni::_pico_explorer(uint16_t buffer);
+	PicoExplorer *_pico_explorer;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/04 17:07:48 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/05 02:28:11 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <cstdlib>
 //#include <unistd.h>
 
-#include "pico_explorer.hpp"
+//#include "pico_explorer.hpp"
 //#include "hardware/gpio.h"
 //#include "hardware/pwm.h"
 
@@ -63,7 +63,7 @@ int main()
 	sleep_ms(1000);
 
 */
-
+/*
 	motor.set_speed(-200);
 	printf("$$$$$$$$$$$$$$Speed set\n");
 	//motor.print_status();
@@ -95,7 +95,7 @@ int main()
 	motor.set_speed(-20);
 	motor.set_speed(20);
 	motor.set_speed(0);
-
+*/
 /*
 	motor.set_speed(-200);
 	printf("$$$$$$$$$$$$$$Speed set\n");
@@ -130,6 +130,15 @@ int main()
 	*/
 
 // test user input
+
+
+
+
+
+
+
+
+
 	UserInterface interface;
 	//userinput.init_explorer(pico_explorer);
 	float f;
@@ -138,4 +147,5 @@ int main()
 
 	f = interface.get_float(10.00, 0.01, "Calib mass", "g");
 	std::cout << "entered mass : " << f << std::endl;;
+
 }
