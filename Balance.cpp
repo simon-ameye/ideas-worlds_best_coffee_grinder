@@ -15,7 +15,6 @@
 Balance::Balance(void)
 {
 	Balance::_recover_calibraton();
-
 }
 
 void Balance::_save_calibration(void)
@@ -53,3 +52,20 @@ void Balance::_recover_calibraton(void)
 	}
 }
 
+float Balance::get_sig(void)
+{
+	//get the raw sig
+	return (2.0);
+}
+
+float Balance::get_load(void)
+{
+	return (this->_offset + this->_sensivity * Balance::get_sig());
+}
+
+void Balance::set_calibration(float offcet, float sensitivity)
+{
+	this->_offset = offcet;
+	this->_sensivity = sensitivity;
+	Balance::_save_calibration();
+}

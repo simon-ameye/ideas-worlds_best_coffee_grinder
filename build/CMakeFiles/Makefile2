@@ -2527,12 +2527,12 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean:
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default.dir/all
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/depend
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build.make pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=18,19 "Built target bs2_default_padded_checksummed_asm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=18 "Built target bs2_default_padded_checksummed_asm"
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
 
 # Build rule for subdir invocation for target.
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/speedhacker/pico/devs/first/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/speedhacker/pico/devs/first/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/speedhacker/pico/devs/first/build/CMakeFiles 0
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/rule
@@ -2631,7 +2631,7 @@ pimoroni-drivers/plasma/CMakeFiles/plasma_ws2812_pio_h.dir/clean:
 pimoroni-drivers/hub75/CMakeFiles/hub75_hub75_pio_h.dir/all: CMakeFiles/PioasmBuild.dir/all
 	$(MAKE) $(MAKESILENT) -f pimoroni-drivers/hub75/CMakeFiles/hub75_hub75_pio_h.dir/build.make pimoroni-drivers/hub75/CMakeFiles/hub75_hub75_pio_h.dir/depend
 	$(MAKE) $(MAKESILENT) -f pimoroni-drivers/hub75/CMakeFiles/hub75_hub75_pio_h.dir/build.make pimoroni-drivers/hub75/CMakeFiles/hub75_hub75_pio_h.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=20 "Built target hub75_hub75_pio_h"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=19 "Built target hub75_hub75_pio_h"
 .PHONY : pimoroni-drivers/hub75/CMakeFiles/hub75_hub75_pio_h.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2657,12 +2657,12 @@ pimoroni-drivers/hub75/CMakeFiles/hub75_hub75_pio_h.dir/clean:
 pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/all:
 	$(MAKE) $(MAKESILENT) -f pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/build.make pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/depend
 	$(MAKE) $(MAKESILENT) -f pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/build.make pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=21,22 "Built target pico_graphics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/speedhacker/pico/devs/first/build/CMakeFiles --progress-num=20,21,22 "Built target pico_graphics"
 .PHONY : pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/all
 
 # Build rule for subdir invocation for target.
 pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/speedhacker/pico/devs/first/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/speedhacker/pico/devs/first/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/speedhacker/pico/devs/first/build/CMakeFiles 0
 .PHONY : pimoroni-libraries/pico_graphics/CMakeFiles/pico_graphics.dir/rule

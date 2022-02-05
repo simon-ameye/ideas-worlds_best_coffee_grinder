@@ -136,3 +136,28 @@ float UserInterface::get_float(float init_value, float step, std::string prt, st
 	return (res);
 }
 
+void UserInterface::show_message_validate(std::string str)
+{
+	PicoExplorer *px = this->_pico_explorer;
+	Rect rectangle(0, 0, 239, 239);
+	px->set_pen(0, 0, 0);
+	px->rectangle(rectangle);
+	px->set_pen(255, 255, 255);
+	px->text(str , Point(000,  90), 220, 4);
+	while (1)
+	{
+		px->text("ok", Point(000, 170), 220, 4);
+		if(px->is_pressed(px->B))
+			break ;
+	}
+	sleep_ms(300);
+}
+void UserInterface::show_message_pass(std::string str)
+{
+	PicoExplorer *px = this->_pico_explorer;
+	Rect rectangle(0, 0, 239, 239);
+	px->set_pen(0, 0, 0);
+	px->rectangle(rectangle);
+	px->set_pen(255, 255, 255);
+	px->text(str , Point(000,  90), 220, 4);
+}

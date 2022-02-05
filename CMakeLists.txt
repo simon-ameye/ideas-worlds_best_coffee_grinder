@@ -20,6 +20,8 @@ add_executable(
 	Userinterface.cpp
 	Grinder.cpp
 	Grinder.hpp
+	Balance.cpp
+	Balance.hpp
 )
 
 pico_add_extra_outputs(pico_test)
