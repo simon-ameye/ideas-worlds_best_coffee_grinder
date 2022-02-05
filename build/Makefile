@@ -305,6 +305,30 @@ pico_unicorn_pico_unicorn_pio_h/fast:
 	$(MAKE) $(MAKESILENT) -f pimoroni-libraries/pico_unicorn/CMakeFiles/pico_unicorn_pico_unicorn_pio_h.dir/build.make pimoroni-libraries/pico_unicorn/CMakeFiles/pico_unicorn_pico_unicorn_pio_h.dir/build
 .PHONY : pico_unicorn_pico_unicorn_pio_h/fast
 
+Grinder.obj: Grinder.cpp.obj
+.PHONY : Grinder.obj
+
+# target to build an object file
+Grinder.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Grinder.cpp.obj
+.PHONY : Grinder.cpp.obj
+
+Grinder.i: Grinder.cpp.i
+.PHONY : Grinder.i
+
+# target to preprocess a source file
+Grinder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Grinder.cpp.i
+.PHONY : Grinder.cpp.i
+
+Grinder.s: Grinder.cpp.s
+.PHONY : Grinder.s
+
+# target to generate assembly for a file
+Grinder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pico_test.dir/build.make CMakeFiles/pico_test.dir/Grinder.cpp.s
+.PHONY : Grinder.cpp.s
+
 Stepper.obj: Stepper.cpp.obj
 .PHONY : Stepper.obj
 
@@ -2024,6 +2048,9 @@ help:
 	@echo "... bs2_default"
 	@echo "... pico_graphics"
 	@echo "... pico_test"
+	@echo "... Grinder.obj"
+	@echo "... Grinder.i"
+	@echo "... Grinder.s"
 	@echo "... Stepper.obj"
 	@echo "... Stepper.i"
 	@echo "... Stepper.s"

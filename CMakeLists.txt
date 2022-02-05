@@ -18,6 +18,8 @@ add_executable(
 	Stepper.hpp
 	UserInterface.hpp
 	Userinterface.cpp
+	Grinder.cpp
+	Grinder.hpp
 )
 
 pico_add_extra_outputs(pico_test)

@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/05 02:28:11 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/05 10:23:46 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 #include "serial_print.hpp"
 #include "Stepper.hpp"
 #include "UserInterface.hpp"
+#include "Grinder.hpp"
 
 using namespace pimoroni;
 
@@ -46,15 +47,18 @@ int main()
 */
 
 // init serial
+
 	serial_print_init();
 	sleep_ms(1000);
 	for (int k = 0; k < 100; k++)
 		printf("$$$$$$$$$$$$$$$$$First print$$$$$$$$$$$$$$$$\n");
 
+
 // test motor
+/*
 	Stepper motor(0, 25, 13);
 	printf("$$$$$$$$$$$$$$Sepper created\n");
-
+*/
 
 /*
 	motor.set_speed(500);
@@ -138,7 +142,7 @@ int main()
 
 
 
-
+/*
 	UserInterface interface;
 	//userinput.init_explorer(pico_explorer);
 	float f;
@@ -147,5 +151,39 @@ int main()
 
 	f = interface.get_float(10.00, 0.01, "Calib mass", "g");
 	std::cout << "entered mass : " << f << std::endl;;
+*/
+
+
+	//first try
+	UserInterface	interface;
+	Stepper			stepper(0, 25, 13);
+	Grinder			grinder(&stepper, &interface);
+
+	std::stringstream mass_str_stream;
+	std::string mass_str;
+	while (1)
+	{
+		mass_str_stream << std::fixed << std::setprecision(2) << grinder.get_coffee_mass_g() << "g";
+		mass_str = mass_str_stream.str();
+		switch (interface.show_menu("Grind " + mass_str, "Set mass", "Calibrate", "Bonus"))
+		{
+			case 'A':
+				grinder.grind();
+				break;
+			case 'B':
+				grinder.set_coffee_mass_g();
+				break;
+			case 'X':
+				interface.get_float(10.0, 0.01, "Mass 1", "g");
+				interface.get_float(10.0, 0.01, "Mass 2", "g");
+				//balance.calibrate();
+				break;
+			case 'Y':
+				break;
+
+		}
+	}
+	
+	
 
 }

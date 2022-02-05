@@ -27,6 +27,8 @@ class UserInterface// : pimoroni::PicoExplorer// PUTAIN IMPOSSIBLE DE DECLARER C
 	UserInterface(void);
 	~UserInterface(void);
 	float get_float(float init_value, float step, std::string prompt, std::string unit);
+	char show_menu(std::string str_A, std::string str_B, std::string str_X, std::string str_Y);
+
 
 	private:
 	//PicoExplorer pimoroni::_pico_explorer(uint16_t buffer);

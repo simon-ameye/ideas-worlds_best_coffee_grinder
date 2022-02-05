@@ -35,6 +35,44 @@ UserInterface::~UserInterface(void)
 	delete this->_pico_explorer;
 }
 
+char UserInterface::show_menu(std::string str_A, std::string str_B, std::string str_X, std::string str_Y)
+{
+	sleep_ms(300);
+	PicoExplorer *px = this->_pico_explorer;
+	Rect rectA(  0,   0, 120, 120);
+	Rect rectB(  0, 120, 120, 120);
+	Rect rectX(120,   0, 120, 120);
+	Rect rectY(120, 120, 120, 120);
+
+	px->set_pen(100, 100, 0);
+	px->rectangle(rectA);
+	px->set_pen(  0, 100, 100);
+	px->rectangle(rectB);
+	px->set_pen(100,   0, 100);
+	px->rectangle(rectX);
+	px->set_pen(100, 100, 100);
+	px->rectangle(rectY);
+	px->set_pen(255, 255, 255);
+
+	px->text(str_A,			Point(0  ,   0), 220, 4);
+	px->text(str_B,	Point(0  , 120), 220, 4);
+	px->text(str_X,		Point(120,   0), 220, 4);
+	px->text(str_Y,			Point(120, 120), 220, 4);
+
+	while (1)
+	{
+		if(px->is_pressed(px->A))
+			return ('A');
+		if(px->is_pressed(px->B))
+			return ('B');
+		if(px->is_pressed(px->X))
+			return ('X');
+		if(px->is_pressed(px->Y))
+			return ('Y');
+	}
+	return ('0');
+}
+
 float UserInterface::get_float(float init_value, float step, std::string prt, std::string unit)
 {
 	std::cout << "UserInterface::get_float" << std::endl;
@@ -47,14 +85,15 @@ float UserInterface::get_float(float init_value, float step, std::string prt, st
 	int i = 0;
 	PicoExplorer *px = this->_pico_explorer;
 	sleep_ms(300);
-	std::cout << "2" << std::endl;
+	//std::cout << "2" << std::endl;
 	Rect rectangle(0, 0, 239, 239);
+	std::stringstream strvalstream;
+	std::string str;
 	while (1)
 	{
 		//width = height = 240
-		std::stringstream strvalstream;
 		strvalstream << std::fixed << std::setprecision(2) << res << unit;
-		std::string str = strvalstream.str();
+		str = strvalstream.str();
 		//std::cout << "3" << std::endl;
 		//px->clear();
 

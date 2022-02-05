@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/pico_test.dir/Grinder.cpp.obj"
+  "CMakeFiles/pico_test.dir/Grinder.cpp.obj.d"
   "CMakeFiles/pico_test.dir/Stepper.cpp.obj"
   "CMakeFiles/pico_test.dir/Stepper.cpp.obj.d"
   "CMakeFiles/pico_test.dir/Userinterface.cpp.obj"
