@@ -21,7 +21,7 @@
 
 using namespace pimoroni;
 
-class UserInterface// : pimoroni::PicoExplorer// PUTAIN IMPOSSIBLE DE DECLARER CETTE CLASSE COMME CA
+class UserInterface
 {
 	public:
 	UserInterface(void);
