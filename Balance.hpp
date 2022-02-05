@@ -23,15 +23,15 @@
 class Balance
 {
 	public:
-	Balance(void);
-	float get_sig(void);
-	float get_load(void);
-	void set_calibration(float offcet, float sensitivity);
+			Balance(void);
+	float	get_sig(void);
+	float	get_load(void);
+	void	set_calibration(float offcet, float sensitivity);
 
 	private:
-	void _save_calibration(void);
-	void _recover_calibraton(void);
-	float _offset;
-	float _sensivity;
+	void	_save_calibration(void);
+	void	_recover_calibraton(void);
+	float	_offset;
+	float	_sensivity;
 };
 #endif

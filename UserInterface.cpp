@@ -12,13 +12,9 @@
 
 #include "UserInterface.hpp"
 
-//uint16_t buffer[PicoExplorer::WIDTH * PicoExplorer::HEIGHT];
-//UserInterface::UserInterface(void) : pico_explorer
 UserInterface::UserInterface(void)
 {
 	std::cout << "interface constructor called" << std::endl;
-	//PicoExplorer pico_explorer(buffer);
-	//this->_pico_explorer = pico_explorer;
 	uint16_t buffer[PicoExplorer::WIDTH * PicoExplorer::HEIGHT];
 	this->_pico_explorer = new PicoExplorer(buffer);
 	PicoExplorer *px = this->_pico_explorer;
@@ -77,7 +73,6 @@ float UserInterface::get_float(float init_value, float step, std::string prt, st
 {
 	std::cout << "UserInterface::get_float" << std::endl;
 	std::cout << "width : " << PicoExplorer::WIDTH << "height : " << PicoExplorer::HEIGHT << std::endl;
-	//std::cout << "1" << std::endl;
 	float res;
 	res = init_value;
 	bool pressed = 0;
@@ -85,24 +80,15 @@ float UserInterface::get_float(float init_value, float step, std::string prt, st
 	int i = 0;
 	PicoExplorer *px = this->_pico_explorer;
 	sleep_ms(300);
-	//std::cout << "2" << std::endl;
 	Rect rectangle(0, 0, 239, 239);
 	std::stringstream strvalstream;
 	std::string str;
 	while (1)
 	{
-		//width = height = 240
 		strvalstream << std::fixed << std::setprecision(2) << res << unit;
 		str = strvalstream.str();
-		//std::cout << "3" << std::endl;
-		//px->clear();
-
-		//std::cout<<PicoExplorer::WIDTH<<"  "<<PicoExplorer::HEIGHT;
 		px->set_pen(i * 2 % 160, i * 4 % 160, i * 8 % 160);
-			//px->set_pen(0, 0, 0);
-		//px->clear();
 		px->rectangle(rectangle);
-
 		px->set_pen(255, 255, 255);
 
 		px->text(prt , Point(000,  10), 220, 4);

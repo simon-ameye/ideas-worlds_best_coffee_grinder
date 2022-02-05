@@ -51,5 +51,4 @@ class Stepper
 	void _set_wrap(int wrap, int freq, int sleep_per_step_us);
 	void _set_direction(int dir);
 };
-
 #endif

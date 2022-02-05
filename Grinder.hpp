@@ -10,6 +10,9 @@
 /*   https://github.com/simon-ameye/                                */
 /* **************************************************************** */
 
+#ifndef GRINDER_HPP
+#define GRINDER_HPP
+
 #include "Stepper.hpp"
 #include "UserInterface.hpp"
 #include "Balance.hpp"
@@ -19,15 +22,16 @@
 class Grinder
 {
 	public:
-	Grinder(Stepper *stepper, UserInterface *interface, Balance *balance);
-	void set_coffee_mass_g(void);
-	float get_coffee_mass_g(void);
-	void grind(void);
-	void calibrate(void);
+			Grinder(Stepper *stepper, UserInterface *interface, Balance *balance);
+	void	set_coffee_mass_g(void);
+	float	get_coffee_mass_g(void);
+	void	grind(void);
+	void	calibrate(void);
 
 	private:
-	float _coffee_mass_g;
-	Stepper *_stepper;
+	float	_coffee_mass_g;
+	Stepper	*_stepper;
 	UserInterface *_interface;
-	Balance *_balance;
+	Balance	*_balance;
 };
+#endif

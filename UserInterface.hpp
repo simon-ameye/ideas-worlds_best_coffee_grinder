@@ -33,8 +33,6 @@ class UserInterface
 
 
 	private:
-	//PicoExplorer pimoroni::_pico_explorer(uint16_t buffer);
 	PicoExplorer *_pico_explorer;
 };
-
 #endif

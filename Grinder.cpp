@@ -44,6 +44,7 @@ void Grinder::grind(void)
 	sleep_ms(2000);
 	stepper->set_accell(500);
 	//wait first mass reach point
+	//SHOW!
 	stepper->set_speed(-500); // debourage
 	stepper->set_speed(0);
 	//precise measurement
