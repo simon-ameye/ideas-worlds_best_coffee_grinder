@@ -1,3 +1,0 @@
-/Users/speedhacker/pico/devs/first/build/pioasm/CMakeFiles/pioasm.dir
-/Users/speedhacker/pico/devs/first/build/pioasm/CMakeFiles/edit_cache.dir
-/Users/speedhacker/pico/devs/first/build/pioasm/CMakeFiles/rebuild_cache.dir

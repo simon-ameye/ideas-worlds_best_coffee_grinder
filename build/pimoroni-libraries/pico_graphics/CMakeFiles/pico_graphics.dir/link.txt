@@ -1,2 +1,0 @@
-/opt/homebrew/bin/arm-none-eabi-ar qc libpico_graphics.a CMakeFiles/pico_graphics.dir/types.cpp.obj CMakeFiles/pico_graphics.dir/pico_graphics.cpp.obj
-/opt/homebrew/bin/arm-none-eabi-ranlib libpico_graphics.a
