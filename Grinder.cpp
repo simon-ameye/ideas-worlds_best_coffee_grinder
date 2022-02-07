@@ -95,7 +95,7 @@ void Grinder::calibrate(void)
 	float ym1 = this->_balance->get_sig();
 
 	std::cout << "grinder : calibrate : show message" << std::endl;
-	this->_interface->show_message_validate("Place mass 1 and set mass value");
+	this->_interface->show_message_validate("Place mass 2 and set mass value");
 
 	std::cout << "grinder : calibrate : get float" << std::endl;
 	float xm2 = this->_interface->get_float(10.0, 0.01, "Mass 2", "g");
