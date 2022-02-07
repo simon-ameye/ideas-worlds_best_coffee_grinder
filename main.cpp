@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/05 23:15:12 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/07 11:30:09 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
 		printf("$$$$$$$$$$$$$$$$$First print$$$$$$$$$$$$$$$$\n");
 
 	//init instances
+	std::cout << "main : initializing instances" << std::endl;
 	UserInterface	interface;
 	Balance			balance;
 	Stepper			stepper(0, 25, 13);
@@ -45,6 +46,7 @@ int main()
 	{
 		mass_str_stream << std::fixed << std::setprecision(2) << grinder.get_coffee_mass_g() << "g";
 		mass_str = mass_str_stream.str();
+		std::cout << "main : showing menu" << std::endl;
 		switch (interface.show_menu("Grind " + mass_str, "Set mass", "Calibrate", "Bonus"))
 		{
 			case 'A':

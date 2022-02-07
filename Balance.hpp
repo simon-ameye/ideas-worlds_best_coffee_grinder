@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <time.h>
 
 #define DEFAULT_OFFSET 42.42
 #define DEFAULT_SENSITIVITY -100.7333
@@ -33,5 +34,6 @@ class Balance
 	void	_recover_calibraton(void);
 	float	_offset;
 	float	_sensivity;
+	float	_sig_0_simulator_of_load; // to remove
 };
 #endif
