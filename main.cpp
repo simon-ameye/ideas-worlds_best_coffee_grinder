@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/07 11:30:09 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/07 13:16:41 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 {
 	// init serial
 	serial_print_init();
-	sleep_ms(1000);
+	sleep_ms(2000);
 	for (int k = 0; k < 100; k++)
 		printf("$$$$$$$$$$$$$$$$$First print$$$$$$$$$$$$$$$$\n");
 
@@ -44,10 +44,7 @@ int main()
 	std::string mass_str;
 	while (1)
 	{
-		mass_str_stream << std::fixed << std::setprecision(2) << grinder.get_coffee_mass_g() << "g";
-		mass_str = mass_str_stream.str();
-		std::cout << "main : showing menu" << std::endl;
-		switch (interface.show_menu("Grind " + mass_str, "Set mass", "Calibrate", "Bonus"))
+		switch (interface.show_menu("Grind", "Set mass", "Calibrate", "Bonus", grinder.get_coffee_mass_g()))
 		{
 			case 'A':
 				grinder.grind();

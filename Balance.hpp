@@ -34,6 +34,5 @@ class Balance
 	void	_recover_calibraton(void);
 	float	_offset;
 	float	_sensivity;
-	float	_sig_0_simulator_of_load; // to remove
 };
 #endif

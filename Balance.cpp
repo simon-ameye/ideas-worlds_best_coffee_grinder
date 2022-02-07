@@ -16,7 +16,6 @@ Balance::Balance(void)
 {
 	std::cout << "balance : constructor call" << std::endl;
 	Balance::_recover_calibraton();
-	this->_sig_0_simulator_of_load = clock();
 }
 
 void Balance::_save_calibration(void)
@@ -61,17 +60,17 @@ void Balance::_recover_calibraton(void)
 float Balance::get_sig(void)
 {
 	std::cout << "balance : get sig call" << std::endl;
-	//get the raw sig
-	float res = this->_sig_0_simulator_of_load;
 	std::cout << "balance : get sig return" << std::endl;
-	return (res);
+	return (42);
 }
 
 float Balance::get_mass(void)
 {
 	std::cout << "balance : get mass call" << std::endl;
+	float res = this->_offset + this->_sensivity * Balance::get_sig();
 	std::cout << "balance : get mass return" << std::endl;
-	return (this->_offset + this->_sensivity * Balance::get_sig());
+	return (2);
+	return (res);
 }
 
 void Balance::set_calibration(float offcet, float sensitivity)
