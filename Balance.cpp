@@ -58,7 +58,7 @@ float Balance::get_sig(void)
 	return (2.0);
 }
 
-float Balance::get_load(void)
+float Balance::get_mass(void)
 {
 	return (this->_offset + this->_sensivity * Balance::get_sig());
 }

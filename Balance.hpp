@@ -25,7 +25,7 @@ class Balance
 	public:
 			Balance(void);
 	float	get_sig(void);
-	float	get_load(void);
+	float	get_mass(void);
 	void	set_calibration(float offcet, float sensitivity);
 
 	private:

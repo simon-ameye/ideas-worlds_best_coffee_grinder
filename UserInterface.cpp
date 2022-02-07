@@ -55,18 +55,13 @@ char UserInterface::show_menu(std::string str_A, std::string str_B, std::string 
 	px->text(str_X,		Point(120,   0), 220, 4);
 	px->text(str_Y,			Point(120, 120), 220, 4);
 
+	char button;
 	while (1)
 	{
-		if(px->is_pressed(px->A))
-			return ('A');
-		if(px->is_pressed(px->B))
-			return ('B');
-		if(px->is_pressed(px->X))
-			return ('X');
-		if(px->is_pressed(px->Y))
-			return ('Y');
+		if (button = this->button_clicked())
+			return (button);
 	}
-	return ('0');
+	return (0);
 }
 
 float UserInterface::get_float(float init_value, float step, std::string prt, std::string unit)
@@ -105,11 +100,11 @@ float UserInterface::get_float(float init_value, float step, std::string prt, st
 		}
 		pressed = 1;
 		i++;
-		if(px->is_pressed(px->X))
+		if(this->_button_click() == 'X')
 			res += step;
-		else if(px->is_pressed(px->Y))
+		if(this->_button_click() == 'Y')
 			res -= step;
-		else if(px->is_pressed(px->B))
+		if(this->_button_click() == 'B')
 			break ;
 		else
 		{
@@ -133,10 +128,9 @@ void UserInterface::show_message_validate(std::string str)
 	while (1)
 	{
 		px->text("ok", Point(000, 170), 220, 4);
-		if(px->is_pressed(px->B))
+		if(this->button_clicked() == 'B')
 			break ;
 	}
-	sleep_ms(300);
 }
 void UserInterface::show_message_pass(std::string str)
 {
@@ -146,4 +140,41 @@ void UserInterface::show_message_pass(std::string str)
 	px->rectangle(rectangle);
 	px->set_pen(255, 255, 255);
 	px->text(str , Point(000,  90), 220, 4);
+}
+
+void UserInterface::print_coffee_mass(float mass, std::string str)
+{
+	std::stringstream mass_strvalstream;
+	std::string mass_str;
+	mass_strvalstream << std::fixed << std::setprecision(2) << mass << "g";
+	mass_str = mass_strvalstream.str();
+
+	PicoExplorer *px = this->_pico_explorer;
+	Rect rectangle(0, 0, 239, 239);
+	px->set_pen(0, 0, 0);
+	px->rectangle(rectangle);
+	px->set_pen(255, 255, 255);
+	px->text(str , Point(0,  0), 220, 4);
+	px->text(mass_str , Point(0,  90), 220, 9);
+}
+
+char UserInterface::_button_click(void)
+{
+	PicoExplorer *px = this->_pico_explorer;
+	if(px->is_pressed(px->X))
+		return('X');
+	else if(px->is_pressed(px->Y))
+		return('Y');
+	else if(px->is_pressed(px->A))
+		return('A');
+	else if(px->is_pressed(px->A))
+		return('B');
+	return (0);
+}
+
+char UserInterface::button_clicked(void)
+{
+	char button = this->_button_click();
+	while (this->_button_click());
+	return (button);
 }

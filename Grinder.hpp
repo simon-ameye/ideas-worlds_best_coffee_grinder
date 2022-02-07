@@ -13,6 +13,8 @@
 #ifndef GRINDER_HPP
 #define GRINDER_HPP
 
+#include <time.h>
+
 #include "Stepper.hpp"
 #include "UserInterface.hpp"
 #include "Balance.hpp"
@@ -27,6 +29,7 @@ class Grinder
 	float	get_coffee_mass_g(void);
 	void	grind(void);
 	void	calibrate(void);
+	void	grind_until(float duration_s, float mass_target_g, int speed_rpm, float initial_mass_g);
 
 	private:
 	float	_coffee_mass_g;

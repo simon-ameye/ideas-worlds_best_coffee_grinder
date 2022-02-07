@@ -37,25 +37,26 @@ float Grinder::get_coffee_mass_g(void)
 void Grinder::grind(void)
 {
 	Stepper *stepper = this->_stepper;
-	//reset balance
-	stepper->set_speed(-500); // debourage
+	UserInterface *interface = this->_interface;
+	Balance *balance = this->_balance;
+	float coffee_mass_g = this->_coffee_mass_g;
+	float initial_mass_g;
+
+	this->_interface->show_message_pass("Please place container on balance");
 	stepper->set_accell(100);
-	stepper->set_speed(200);
-	sleep_ms(2000);
-	stepper->set_accell(500);
-	//wait first mass reach point
-	//SHOW!
 	stepper->set_speed(-500); // debourage
 	stepper->set_speed(0);
-	//precise measurement
-	stepper->set_speed(70);
-	sleep_ms(1000);
-	stepper->set_speed(0);
-	sleep_ms(1000);
-	stepper->set_speed(70);
-	sleep_ms(1000);
-	stepper->set_speed(0);
-	//play finish music
+	initial_mass_g = balance->get_mass();
+	Grinder::grind_until(10, initial_mass_g + this->_coffee_mass_g - 1, 200, initial_mass_g); //brew coarsly and leave 1g
+	stepper->set_accell(500);
+	Grinder::grind_until(10, initial_mass_g + this->_coffee_mass_g, 100, initial_mass_g); //brew coarsly and leave 1g
+	stepper->set_accell(500);
+	float final_mass;
+	while (!interface->button_clicked())
+	{
+		final_mass = balance->get_mass() - initial_mass_g;
+		interface->print_coffee_mass(final_mass, "Grinded mass :");
+	}
 }
 
 void Grinder::calibrate(void)
@@ -69,4 +70,24 @@ void Grinder::calibrate(void)
 	float sensitivity = (ym2 - ym1) / (xm2 - xm1);
 	float offcet = ym1 - sensitivity * xm1;
 	this->_balance->set_calibration(offcet, sensitivity);
+}
+
+//Set max_time = 0 or max_mass = 0 to ignore
+void	Grinder::grind_until(float duration_s, float mass_target_g, int speed_rpm, float initial_mass_g)
+{
+	clock_t time = 0.0;
+	clock_t time_ref = clock();
+	float mass = 0.0;
+	this->_stepper->set_speed(speed_rpm);
+	while (1)
+	{
+		if (duration_s && time >= duration_s)
+			break;
+		if (mass_target_g && mass >= mass_target_g)
+			break;
+		this->_interface->print_coffee_mass(mass - initial_mass_g, "Grinding...");
+		time = (float)(clock() - time_ref) / CLOCKS_PER_SEC;
+		mass = this->_balance->get_mass() - initial_mass_g;
+	}
+	this->_stepper->set_speed(0);
 }

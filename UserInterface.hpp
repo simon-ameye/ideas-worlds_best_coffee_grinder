@@ -30,9 +30,11 @@ class UserInterface
 	char show_menu(std::string str_A, std::string str_B, std::string str_X, std::string str_Y);
 	void show_message_validate(std::string str);
 	void show_message_pass(std::string str);
-
+	void print_coffee_mass(float mass, std::string str);
+	char button_clicked(void);
 
 	private:
 	PicoExplorer *_pico_explorer;
+	char _button_click(void);
 };
 #endif
