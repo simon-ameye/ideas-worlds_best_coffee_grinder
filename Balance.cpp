@@ -77,6 +77,7 @@ void Balance::_recover_calibraton(void)
 
 //sbit ADDO = P1^5;
 //sbit ADSK = P0^0;
+/*
 static unsigned long ReadCound(void)
 {
 	unsigned long Count;
@@ -102,6 +103,7 @@ static unsigned long ReadCound(void)
 	//maybe send 0-1-2 more blinks ?
 	return (Count);
 }
+*/
 
 float Balance::get_sig(void)
 {
