@@ -16,6 +16,8 @@
 #include <iostream>
 #include <fstream>
 #include <time.h>
+#include <cerrno>
+#include <cstring>
 
 #define DEFAULT_OFFSET 42.42
 #define DEFAULT_SENSITIVITY -100.7333
