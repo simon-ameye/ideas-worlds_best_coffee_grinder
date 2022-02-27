@@ -28,11 +28,11 @@
 class Balance
 {
 	public:
-			Balance(void);
-	float	get_sig(void);
-	float	get_mass(void);
-	void	set_calibration(float offcet, float sensitivity);
-	float	get_averaged_mass(int samples);
+					Balance(void);
+	unsigned long	get_sig(void);
+	float			get_mass(void);
+	void			set_calibration(float offcet, float sensitivity);
+	float			get_averaged_mass(int samples);
 
 	private:
 	void	_save_calibration(void);

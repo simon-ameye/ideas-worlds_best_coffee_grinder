@@ -59,11 +59,11 @@ void Balance::_recover_calibraton(void)
 	std::cout << "balance : recover calibration return" << std::endl;
 }
 
-float Balance::get_sig(void)
+unsigned long Balance::get_sig(void)
 {
 	std::cout << "balance : get sig call" << std::endl;
 	unsigned long sig = _Hx711.ReadCound();
-	std::cout << "balance : get sig return" << std::endl;
+	std::cout << "balance : get sig returned sig = " << sig << std::endl;
 	return (sig);
 }
 
@@ -71,7 +71,8 @@ float Balance::get_mass(void)
 {
 	std::cout << "balance : get mass call" << std::endl;
 	float res = this->_offset + this->_sensivity * Balance::get_sig();
-	std::cout << "balance : get mass returned " << res << std::endl;
+	res = Balance::get_sig(); //to remove
+	std::cout << "balance : get mass returned mass = " << res << std::endl;
 	return (res);
 }
 
