@@ -19,6 +19,7 @@
 #include <time.h>
 #include <cerrno>
 #include <cstring>
+#include "hardware/timer.h"
 
 #define DEFAULT_OFFSET 42.42
 #define DEFAULT_SENSITIVITY -100.7333
@@ -31,6 +32,7 @@ class Balance
 	float	get_sig(void);
 	float	get_mass(void);
 	void	set_calibration(float offcet, float sensitivity);
+	float	get_averaged_mass(int samples);
 
 	private:
 	void	_save_calibration(void);

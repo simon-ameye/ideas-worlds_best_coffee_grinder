@@ -71,8 +71,24 @@ float Balance::get_mass(void)
 {
 	std::cout << "balance : get mass call" << std::endl;
 	float res = this->_offset + this->_sensivity * Balance::get_sig();
-	std::cout << "balance : get mass return" << std::endl;
-	return (2);
+	std::cout << "balance : get mass returned " << res << std::endl;
+	return (res);
+}
+
+float Balance::get_averaged_mass(int samples)
+{
+	std::cout << "balance : get averaged mass call for " << samples << " samples" << std::endl;
+	absolute_time_t begin, end;
+	begin = get_absolute_time();
+
+	float res = 0.0f;
+	for (int i = 0; i < samples; i++)
+		res = res + (Balance::get_mass() / samples);
+
+	end = get_absolute_time();
+	int64_t elapsed = absolute_time_diff_us (begin, end);
+	std::cout << "balance : get averaged mass returned in " << std::endl;
+	std::cout << "Elapsed time: " << elapsed << " us\n";
 	return (res);
 }
 

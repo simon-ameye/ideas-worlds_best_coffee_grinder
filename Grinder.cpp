@@ -51,6 +51,17 @@ void Grinder::grind(void)
 
 	this->_interface->show_message_validate("Please place container on balance");
 
+	interface->print_coffee_mass(0, "Grinded mass :");
+	stepper->set_accell(5000);
+	stepper->set_speed(-50); // debourage
+	sleep_ms(1000);
+	stepper->set_speed(0);
+	sleep_ms(1000);
+
+	std::cout << "grinder : grind : init mass" << std::endl;
+	initial_mass_g = balance->get_mass();
+	initial_mass_g = 0; //to remove
+
 	std::cout << "grinder : grind : debourage" << std::endl;
 	stepper->set_accell(5000);
 	stepper->set_speed(-500); // debourage
@@ -59,9 +70,6 @@ void Grinder::grind(void)
 	stepper->set_speed(0);
 	stepper->set_speed(-500); // debourage
 	stepper->set_speed(0);
-
-	std::cout << "grinder : grind : init mass" << std::endl;
-	initial_mass_g = balance->get_mass();
 
 	std::cout << "grinder : grind : first grind" << std::endl;
 	stepper->set_accell(300);
@@ -75,7 +83,7 @@ void Grinder::grind(void)
 	float final_mass;
 	while (!interface->button_clicked())
 	{
-		final_mass = balance->get_mass() - initial_mass_g;
+		final_mass = balance->get_averaged_mass(100) - initial_mass_g;
 		interface->print_coffee_mass(final_mass, "Grinded mass :");
 	}
 	std::cout << "grinder : grind return" << std::endl;
