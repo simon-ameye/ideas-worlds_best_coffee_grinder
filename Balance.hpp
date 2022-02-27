@@ -13,6 +13,7 @@
 #ifndef BALANCE_HPP
 #define BALANCE_HPP
 
+#include "Hx711.hpp"
 #include <iostream>
 #include <fstream>
 #include <time.h>
@@ -36,5 +37,6 @@ class Balance
 	void	_recover_calibraton(void);
 	float	_offset;
 	float	_sensivity;
+	Hx711	_Hx711;
 };
 #endif

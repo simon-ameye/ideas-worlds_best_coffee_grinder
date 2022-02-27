@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/26 16:49:21 by sameye           ###   ########.fr       */
+/*   Updated: 2022/02/27 19:26:56 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 	std::cout << "main : initializing instances" << std::endl;
 	UserInterface	interface;
 	Balance			balance;
-	Stepper			stepper(0, 25, 13);
+	Stepper			stepper;
 	Grinder			grinder(&stepper, &interface, &balance);
 
 	//loop

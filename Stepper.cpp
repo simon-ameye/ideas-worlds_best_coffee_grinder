@@ -12,19 +12,19 @@
 
 #include "Stepper.hpp"
 
-Stepper::Stepper(uint pul_gpio, uint ena_gpio, uint dir_gpio)
+Stepper::Stepper(void)
 {
 	std::cout << "stepper : constructor call" << std::endl;
 	this->_accell_rpm_s = DEFAULT_ACCELL_S;
 	this->_speed_rpm = 0;
 
-	this->_pul_gpio = pul_gpio;
-	this->_ena_gpio = ena_gpio;
-	this->_dir_gpio = dir_gpio;
+	this->_pul_gpio = PUL_GPIO;
+	this->_ena_gpio = ENA_GPIO;
+	this->_dir_gpio = DIR_GPIO;
 
-	gpio_set_function(pul_gpio, GPIO_FUNC_PWM);
-	this->_channel = pwm_gpio_to_channel(pul_gpio);
-	this->_slice_num = pwm_gpio_to_slice_num(pul_gpio);
+	gpio_set_function(_pul_gpio, GPIO_FUNC_PWM);
+	this->_channel = pwm_gpio_to_channel(_pul_gpio);
+	this->_slice_num = pwm_gpio_to_slice_num(_pul_gpio);
 	pwm_set_clkdiv_int_frac(this->_slice_num, DIVIDER, 0);
 	std::cout << "stepper : constructor return" << std::endl;
 }

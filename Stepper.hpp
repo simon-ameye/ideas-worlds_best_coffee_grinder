@@ -18,6 +18,11 @@
 #include <math.h>
 #include <iostream>
 
+//GPIO pins data
+#define PUL_GPIO 0
+#define ENA_GPIO 25
+#define DIR_GPIO 13
+
 //raspberry pi pico PWM data
 #define MAXWRAP 65534
 #define DIVIDER 255
@@ -31,7 +36,7 @@
 class Stepper
 {
 	public:
-	Stepper(uint pul_gpio, uint ena_gpio, uint dir_gpio);
+	Stepper(void);
 	~Stepper(void);
 	void set_speed(int speed_rmp);
 	void enable(void);
