@@ -47,9 +47,6 @@ class Stepper
 	private:
 	uint _channel;
 	uint _slice_num;
-	uint _pul_gpio;
-	uint _ena_gpio;
-	uint _dir_gpio;
 	uint _accell_rpm_s;
 	int _speed_rpm;
 	void _speed_ramp(int speed_rmp);

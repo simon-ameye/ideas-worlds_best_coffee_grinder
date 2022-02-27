@@ -18,13 +18,9 @@ Stepper::Stepper(void)
 	this->_accell_rpm_s = DEFAULT_ACCELL_S;
 	this->_speed_rpm = 0;
 
-	this->_pul_gpio = PUL_GPIO;
-	this->_ena_gpio = ENA_GPIO;
-	this->_dir_gpio = DIR_GPIO;
-
-	gpio_set_function(_pul_gpio, GPIO_FUNC_PWM);
-	this->_channel = pwm_gpio_to_channel(_pul_gpio);
-	this->_slice_num = pwm_gpio_to_slice_num(_pul_gpio);
+	gpio_set_function(PUL_GPIO, GPIO_FUNC_PWM);
+	this->_channel = pwm_gpio_to_channel(PUL_GPIO);
+	this->_slice_num = pwm_gpio_to_slice_num(PUL_GPIO);
 	pwm_set_clkdiv_int_frac(this->_slice_num, DIVIDER, 0);
 	std::cout << "stepper : constructor return" << std::endl;
 }
@@ -125,10 +121,10 @@ void Stepper::enable(void)
 {
 	std::cout << "stepper : enable call" << std::endl;
 	pwm_set_enabled(this->_slice_num, 1);
-	gpio_init(this->_dir_gpio);
-	gpio_init(this->_ena_gpio);
-	gpio_set_dir(this->_ena_gpio, GPIO_OUT);
-	gpio_put(this->_ena_gpio, 1);
+	gpio_init(DIR_GPIO);
+	gpio_init(ENA_GPIO);
+	gpio_set_dir(ENA_GPIO, GPIO_OUT);
+	gpio_put(ENA_GPIO, 1);
 	std::cout << "stepper : enable return" << std::endl;
 }
 
@@ -136,7 +132,7 @@ void Stepper::disable(void)
 {
 	std::cout << "stepper : disable call" << std::endl;
 	pwm_set_enabled(this->_slice_num, 0);
-	gpio_put(this->_ena_gpio, 0);
+	gpio_put(ENA_GPIO, 0);
 	std::cout << "stepper : disable return" << std::endl;
 }
 
@@ -144,9 +140,9 @@ void Stepper::_set_direction(int speed_rpm)
 {
 	std::cout << "stepper : set direction call" << std::endl;
 	if (speed_rpm > 0)
-		gpio_put(this->_dir_gpio, 1);
+		gpio_put(DIR_GPIO, 1);
 	else
-		gpio_put(this->_dir_gpio, 0);
+		gpio_put(DIR_GPIO, 0);
 	std::cout << "stepper : set direction return" << std::endl;
 }
 
@@ -162,9 +158,9 @@ void Stepper::print_status(void)
 	std::cout << "    Stepper configuration :" << std::endl;
 	std::cout << "    _channel : "		<< this->_channel		<< std::endl;
 	std::cout << "    _slice_num : "	<< this->_slice_num		<< std::endl;
-	std::cout << "    _pul_gpio : "		<< this->_pul_gpio		<< std::endl;
-	std::cout << "    _ena_gpio : "		<< this->_ena_gpio		<< std::endl;
-	std::cout << "    _dir_gpio : "		<< this->_dir_gpio		<< std::endl;
+	std::cout << "    _pul_gpio : "		<< PUL_GPIO		<< std::endl;
+	std::cout << "    _ena_gpio : "		<< ENA_GPIO		<< std::endl;
+	std::cout << "    _dir_gpio : "		<< DIR_GPIO		<< std::endl;
 	std::cout << "    _accell_rpm_s : "	<< this->_accell_rpm_s	<< std::endl;
 	std::cout << "    _speed_rpm : "	<< this->_speed_rpm		<< std::endl;
 	std::cout << std::endl;

@@ -20,6 +20,8 @@ add_executable(
 	Grinder.hpp
 	Balance.cpp
 	Balance.hpp
+	Hx711.cpp
+	Hx711.hpp
 )
 
 pico_add_extra_outputs(Grinder)
