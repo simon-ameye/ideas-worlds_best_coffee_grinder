@@ -35,6 +35,12 @@ Stepper::~Stepper(void)
 
 void Stepper::set_speed(int speed_rpm)
 {
+	multicore_launch_core1(set_speed_thread(speed_rpm));
+	multicore_fifo_pop_blocking();
+}
+
+void Stepper::set_speed_thread(int speed_rpm)
+{
 	std::cout << "stepper : set speed call" << std::endl;
 	if (this->_speed_rpm == speed_rpm || speed_rpm > MAX_MOTOR_RPM)
 	{
@@ -57,6 +63,8 @@ void Stepper::set_speed(int speed_rpm)
 	if (speed_rpm == 0)
 		Stepper::disable();
 	std::cout << "stepper : set speed return" << std::endl;
+
+	exit(0);
 }
 
 void Stepper::_speed_ramp(int speed_rpm)

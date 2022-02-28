@@ -17,6 +17,7 @@
 #include "pico/stdlib.h"
 #include <math.h>
 #include <iostream>
+#include "pico/multicore.h"
 
 //GPIO pins data
 #define PUL_GPIO 0
@@ -38,6 +39,7 @@ class Stepper
 	public:
 	Stepper(void);
 	~Stepper(void);
+	void set_speed_thread(int speed_rmp);
 	void set_speed(int speed_rmp);
 	void enable(void);
 	void disable(void);

@@ -63,6 +63,7 @@ void Grinder::grind(void)
 	initial_mass_g = 0; //to remove
 
 	std::cout << "grinder : grind : debourage" << std::endl;
+	/*
 	stepper->set_accell(5000);
 	stepper->set_speed(-500); // debourage
 	stepper->set_speed(0);
@@ -70,6 +71,7 @@ void Grinder::grind(void)
 	stepper->set_speed(0);
 	stepper->set_speed(-500); // debourage
 	stepper->set_speed(0);
+	*/
 
 	std::cout << "grinder : grind : first grind" << std::endl;
 	stepper->set_accell(300);
