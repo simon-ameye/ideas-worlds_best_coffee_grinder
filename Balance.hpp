@@ -21,8 +21,8 @@
 #include <cstring>
 #include "hardware/timer.h"
 
-#define DEFAULT_OFFSET 42.42
-#define DEFAULT_SENSITIVITY -100.7333
+#define DEFAULT_OFFSET -484.075
+#define DEFAULT_SENSITIVITY 0.0000575
 #define CALIBRARION_FILE_NAME "load_cell_calibration.txt"
 
 class Balance
@@ -33,6 +33,7 @@ class Balance
 	float			get_mass(void);
 	void			set_calibration(float offcet, float sensitivity);
 	float			get_averaged_mass(int samples);
+	void			print_balance_data();
 
 	private:
 	void	_save_calibration(void);

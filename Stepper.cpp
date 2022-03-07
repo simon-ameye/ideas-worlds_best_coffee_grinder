@@ -122,9 +122,10 @@ void Stepper::enable(void)
 	std::cout << "stepper : enable call" << std::endl;
 	pwm_set_enabled(this->_slice_num, 1);
 	gpio_init(DIR_GPIO);
+	gpio_set_dir(DIR_GPIO, GPIO_OUT);
 	gpio_init(ENA_GPIO);
 	gpio_set_dir(ENA_GPIO, GPIO_OUT);
-	gpio_put(ENA_GPIO, 1);
+	gpio_put(ENA_GPIO, 0);
 	std::cout << "stepper : enable return" << std::endl;
 }
 
@@ -132,7 +133,7 @@ void Stepper::disable(void)
 {
 	std::cout << "stepper : disable call" << std::endl;
 	pwm_set_enabled(this->_slice_num, 0);
-	gpio_put(ENA_GPIO, 0);
+	gpio_put(ENA_GPIO, 1);
 	std::cout << "stepper : disable return" << std::endl;
 }
 

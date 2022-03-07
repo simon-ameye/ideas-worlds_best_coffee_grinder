@@ -53,7 +53,7 @@ void Grinder::grind(void)
 
 	interface->print_coffee_mass(0, "Grinded mass :");
 	stepper->set_accell(5000);
-	stepper->set_speed(-50); // debourage
+	stepper->set_speed(-50);
 	sleep_ms(1000);
 	stepper->set_speed(0);
 	sleep_ms(1000);
@@ -79,11 +79,28 @@ void Grinder::grind(void)
 	stepper->set_accell(500);
 	Grinder::grind_until(10, initial_mass_g + this->_coffee_mass_g, 100, initial_mass_g); //brew coarsly and leave 1g
 
+	std::cout << "grinder : grind : second grind" << std::endl;
+	stepper->set_accell(500);
+	Grinder::grind_until(10, initial_mass_g + this->_coffee_mass_g, 100, initial_mass_g); //brew coarsly and leave 1g
+
 	std::cout << "grinder : grind : show result" << std::endl;
 	float final_mass;
 	while (!interface->button_clicked())
 	{
 		final_mass = balance->get_averaged_mass(100) - initial_mass_g;
+		interface->print_coffee_mass(final_mass, "Grinded mass :");
+	}
+	std::cout << "grinder : grind return" << std::endl;
+}
+
+void Grinder::print_averaged_mass(int nb_samples)
+{
+	UserInterface *interface = this->_interface;
+	Balance *balance = this->_balance;
+	float final_mass;
+	while (!interface->button_clicked())
+	{
+		final_mass = balance->get_averaged_mass(nb_samples);
 		interface->print_coffee_mass(final_mass, "Grinded mass :");
 	}
 	std::cout << "grinder : grind return" << std::endl;
@@ -97,23 +114,23 @@ void Grinder::calibrate(void)
 	this->_interface->show_message_validate("Place mass 1 and set mass value");
 
 	std::cout << "grinder : calibrate : get float" << std::endl;
-	float xm1 = this->_interface->get_float(10.0, 0.01, "Mass 1", "g");
+	float ym1 = this->_interface->get_float(10.0, 0.1, "Mass 1", "g");
 
 	std::cout << "grinder : calibrate : get sig" << std::endl;
-	float ym1 = this->_balance->get_sig();
+	float xm1 = this->_balance->get_sig();
 
 	std::cout << "grinder : calibrate : show message" << std::endl;
 	this->_interface->show_message_validate("Place mass 2 and set mass value");
 
 	std::cout << "grinder : calibrate : get float" << std::endl;
-	float xm2 = this->_interface->get_float(10.0, 0.01, "Mass 2", "g");
+	float ym2 = this->_interface->get_float(10.0, 0.1, "Mass 2", "g");
 
 	std::cout << "grinder : calibrate : get sig" << std::endl;
-	float ym2 = this->_balance->get_sig();
+	float xm2 = this->_balance->get_sig();
 
 	std::cout << "grinder : calibrate : calculate calibration" << std::endl;
 	float sensitivity = (ym2 - ym1) / (xm2 - xm1);
-	float offcet = ym1 - sensitivity * xm1;
+	float offcet = ym1 - sensitivity * xm1; //offSet
 
 	std::cout << "grinder : calibrate : set calibration" << std::endl;
 	this->_balance->set_calibration(offcet, sensitivity);
@@ -143,10 +160,19 @@ void	Grinder::grind_until(float duration_s, float mass_target_g, int speed_rpm, 
 		this->_interface->print_coffee_mass(mass - initial_mass_g, "Grinding...");
 		time = (float)(clock() - time_ref) / CLOCKS_PER_SEC;
 		mass = this->_balance->get_mass() - initial_mass_g;
-		mass = i; // to remove
-		i += 0.1; // to remove
+		//mass = i; // to remove
+		//i += 0.1; // to remove
 	}
 	this->_stepper->set_speed(0);
 
 	std::cout << "grinder : grind until return" << std::endl;
+}
+
+void	Grinder::show_data(void)
+{
+	Balance *balance = this->_balance;
+	while (1)
+	{
+		balance->print_balance_data();
+	}
 }

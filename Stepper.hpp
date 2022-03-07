@@ -19,13 +19,15 @@
 #include <iostream>
 
 //GPIO pins data
-#define PUL_GPIO 0
-#define ENA_GPIO 25
-#define DIR_GPIO 13
+#define PUL_GPIO 1
+#define ENA_GPIO 2
+#define DIR_GPIO 3
 
 //raspberry pi pico PWM data
 #define MAXWRAP 65534
-#define DIVIDER 255
+//#define DIVIDER 255
+#define DIVIDER 100
+
 #define CLOCK 125000000
 
 //motor data
@@ -48,7 +50,7 @@ class Stepper
 	uint _channel;
 	uint _slice_num;
 	uint _accell_rpm_s;
-	int _speed_rpm;
+	int  _speed_rpm;
 	void _speed_ramp(int speed_rmp);
 	void _set_wrap(int wrap, int freq, int sleep_per_step_us);
 	void _set_direction(int dir);

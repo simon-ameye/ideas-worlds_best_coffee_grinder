@@ -29,12 +29,14 @@ class Grinder
 	float	get_coffee_mass_g(void);
 	void	grind(void);
 	void	calibrate(void);
-	void	grind_until(float duration_s, float mass_target_g, int speed_rpm, float initial_mass_g);
+	void	print_averaged_mass(int nb_samples);
+	void	show_data(void);
 
 	private:
 	float	_coffee_mass_g;
 	Stepper	*_stepper;
 	UserInterface *_interface;
 	Balance	*_balance;
+	void	grind_until(float duration_s, float mass_target_g, int speed_rpm, float initial_mass_g);
 };
 #endif

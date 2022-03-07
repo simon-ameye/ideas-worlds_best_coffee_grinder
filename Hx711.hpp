@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/27 18:08:29 by sameye            #+#    #+#             */
-/*   Updated: 2022/02/27 20:54:39 by sameye           ###   ########.fr       */
+/*   Updated: 2022/03/06 21:28:57 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include <hardware/adc.h>
 #include "pico/stdlib.h"
 
-#define PD_SCK_GPIO 1 //GPIO pin for clock
-#define DOUT_GPIO 2 //GPIO pin for data reading
+#define PD_SCK_GPIO 5 //GPIO pin for clock
+#define DOUT_GPIO 4 //GPIO pin for data reading
 #define GAIN 128
 #define T1 1
 #define T2 0.1 // not used
