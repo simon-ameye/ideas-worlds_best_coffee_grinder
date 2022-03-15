@@ -12,73 +12,75 @@
 
 #include "Balance.hpp"
 
+static void print_debug(std::string str)
+{
+	#ifdef PRINT_DEBUG
+	std::cout<< "" << str <<std::endl;
+	#endif
+}
+
 Balance::Balance(void)
 {
-	std::cout << "balance : constructor call" << std::endl;
+	print_debug("constructor call");
 	Balance::_recover_calibraton();
 }
 
 void Balance::_save_calibration(void)
 {
-	std::cout << "balance : save calibration call" << std::endl;
-	std::ofstream dst_stream (CALIBRARION_FILE_NAME);
-	if (dst_stream.fail())
-	{
-		std::cout << "open failure : " << strerror(errno) << '\n';
-		std::cout << "File creating fail" << std::endl;
-	}
-	else
-	{
-		std::cout << "Writing calibration file" << std::endl;
-		dst_stream.write((char *)&(this->_offset), sizeof(float));
-		dst_stream.write((char *)&(this->_sensivity), sizeof(float));
-		dst_stream.close();
-	}
-	std::cout << "balance : save calibration return" << std::endl;
+	print_debug("save calibration call");
+	/*
+
+					/ We're going to erase and reprogram a region 256k from the start of flash.
+					// Once done, we can access this at XIP_BASE + 1500k.
+					#define FLASH_TARGET_OFFSET (1500 * 1024)
+
+					const uint8_t *flash_target_contents = (const uint8_t *) (XIP_BASE + FLASH_TARGET_OFFSET);
+
+						uint16_t     temp;
+						uint8_t  resetcount_EEPROM[FLASH_PAGE_SIZE];
+						// Keep a reset count
+						temp = flash_target_contents[0] + (flash_target_contents[1] * 256);
+						temp++;	
+						resetcount_EEPROM[0] = temp & 0xFF;
+						resetcount_EEPROM[1] = ((temp & 0xFF00) >> 8);
+						uint32_t ints = save_and_disable_interrupts();
+						flash_range_erase(FLASH_TARGET_OFFSET, FLASH_SECTOR_SIZE);
+						flash_range_program(FLASH_TARGET_OFFSET, resetcount_EEPROM, FLASH_PAGE_SIZE);
+						restore_interrupts (ints);
+	*/
+	//_recover_calibraton();
+	print_debug("save calibration return");
 }
 
 void Balance::_recover_calibraton(void)
 {
-	std::cout << "balance : recover calibration call" << std::endl;
-	std::string dst_file = CALIBRARION_FILE_NAME;
-	std::ifstream	src_stream(dst_file.c_str(), std::ios_base::binary);
-	if (src_stream.fail())
-	{
-		std::cout << "File reading fail. Saving default values" << std::endl;
-		this->_offset = DEFAULT_OFFSET;
-		this->_sensivity = DEFAULT_SENSITIVITY;
-		Balance::_save_calibration();
-	}
-	else
-	{
-		std::cout << "Reading calibration file" << std::endl;
-		src_stream.read((char *)&(this->_offset), sizeof(float));
-		src_stream.read((char *)&(this->_sensivity), sizeof(float));
-		src_stream.close();
-	}
-	std::cout << "balance : recover calibration return" << std::endl;
+	print_debug("recover calibration call");
+	_sensivity = DEFAULT_SENSITIVITY;
+	_offset = DEFAULT_OFFSET;
+
+	print_debug("recover calibration return");
 }
 
 unsigned long Balance::get_sig(void)
 {
-	//std::cout << "balance : get sig call" << std::endl;
+	//print_debug("get sig call");
 	unsigned long sig = _Hx711.ReadCound();
-	//std::cout << "balance : get sig returned sig = " << sig << std::endl;
+	//print_debug("get sig returned sig = " << sig);
 	return (sig);
 }
 
 float Balance::get_mass(void)
 {
-	//std::cout << "balance : get mass call" << std::endl;
+	//print_debug("get mass call");
 	float res = this->_offset + this->_sensivity * Balance::get_sig();
 	//res = Balance::get_sig(); //to remove
-	//std::cout << "balance : get mass returned mass = " << res << std::endl;
+	//print_debug("get mass returned mass = " << res);
 	return (res);
 }
 
 float Balance::get_averaged_mass(int samples)
 {
-	std::cout << "balance : get averaged mass call for " << samples << " samples" << std::endl;
+	print_debug("get averaged mass call");
 	absolute_time_t begin, end;
 	//begin = get_absolute_time();
 
@@ -88,31 +90,31 @@ float Balance::get_averaged_mass(int samples)
 
 	//end = get_absolute_time();
 	//int64_t elapsed = absolute_time_diff_us (begin, end);
-	std::cout << "balance : get averaged mass returned in " << std::endl;
-	//std::cout << "Elapsed time: " << elapsed << " us\n";
+	print_debug("get averaged mass returned");
+	//print_debug("Elapsed time: " << elapsed << " us\n";
 	return (res);
 }
 
 void Balance::set_calibration(float offcet, float sensitivity)
 {
-	std::cout << "balance : set calibration call" << std::endl;
+	print_debug("set calibration call");
 	this->_offset = offcet;
 	this->_sensivity = sensitivity;
 	Balance::_save_calibration();
-	std::cout << "balance : set calibration return" << std::endl;
+	print_debug("set calibration return");
 }
 
 void	Balance::print_balance_data()
 {
 	/*
-	std::cout << "signal : " << get_sig() <<std::endl;
-	std::cout << "mass : " << get_mass() << "g" <<std::endl;
-	std::cout << "offcet : " << _offset <<std::endl;
-	std::cout << "sensitivuty : " << _sensivity <<std::endl;
+	print_debug("signal : " << get_sig() <<std::endl;
+	print_debug("mass : " << get_mass() << "g" <<std::endl;
+	print_debug("offcet : " << _offset <<std::endl;
+	print_debug("sensitivuty : " << _sensivity <<std::endl;
 	*/
 
 	std::cout	<< "signal : " << get_sig() << " / "
 				<< "mass : " << get_mass() << "g" << " / "
 				<< "offcet : " << _offset << " / "
-				<< "sensitivity : " << _sensivity << std::endl;
+				<< "sensitivity : " << _sensivity <<std::endl;
 }

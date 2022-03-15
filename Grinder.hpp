@@ -19,7 +19,7 @@
 #include "UserInterface.hpp"
 #include "Balance.hpp"
 
-#define DEFAULT_COFFEE_MASS_G 9.00;
+#include "UserConfig.hpp"
 
 class Grinder
 {

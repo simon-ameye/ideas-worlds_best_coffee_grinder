@@ -27,7 +27,7 @@ add_executable(
 pico_add_extra_outputs(Grinder)
 
 #target_link_libraries(explorer pico_stdlib pico_explorer msa301)
-target_link_libraries(Grinder pico_stdlib pico_explorer hardware_pio)
+target_link_libraries(Grinder pico_stdlib pico_explorer hardware_pio hardware_flash hardware_sync)
 
 add_subdirectory(/Users/speedhacker/pico/libs/pimoroni-pico/common pimoroni-common)
 add_subdirectory(/Users/speedhacker/pico/libs/pimoroni-pico/drivers pimoroni-drivers)

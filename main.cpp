@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/03/06 23:12:02 by sameye           ###   ########.fr       */
+/*   Updated: 2022/03/10 11:20:16 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main()
 	Grinder			grinder(&stepper, &interface, &balance);
 
 
-	
+/*
 	//SET SPEED ACCORDING TO MASS
 	stepper.set_accell(500);
 	while (1)
@@ -51,16 +51,19 @@ int main()
 		if (interface.button_clicked())
 			break;
 	}
+
 	
 
 	//grinder.print_averaged_mass(1);
 
-/*
+
 	stepper.set_accell(500);
-	stepper.set_speed(4000); // debourage
-	stepper.set_speed(0);
-*/
-/*
+	stepper.set_speed(200); // debourage
+	sleep_ms(2000);
+	stepper.set_speed(-200);
+
+
+
 	stepper.set_accell(500);
 	stepper.set_speed(9999);
 	sleep_ms(2000);
@@ -95,7 +98,7 @@ int main()
 
 
 
-/*
+
 	//loop
 	//MAIN
 	std::stringstream mass_str_stream;
@@ -118,10 +121,10 @@ int main()
 				break;
 		}
 	}
-	
+
 	sleep_ms(2000);
 	std::cout << "****************************" << std::endl;
 	std::cout << "*       Pico returned      *" << std::endl;
 	std::cout << "****************************" << std::endl;
-*/
+
 }

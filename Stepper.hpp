@@ -18,22 +18,7 @@
 #include <math.h>
 #include <iostream>
 
-//GPIO pins data
-#define PUL_GPIO 1
-#define ENA_GPIO 2
-#define DIR_GPIO 3
-
-//raspberry pi pico PWM data
-#define MAXWRAP 65534
-//#define DIVIDER 255
-#define DIVIDER 100
-
-#define CLOCK 125000000
-
-//motor data
-#define STEPS_PER_REV 200
-#define MAX_MOTOR_RPM 10000
-#define DEFAULT_ACCELL_S 500
+#include "UserConfig.hpp"
 
 class Stepper
 {

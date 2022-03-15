@@ -21,9 +21,12 @@
 #include <cstring>
 #include "hardware/timer.h"
 
-#define DEFAULT_OFFSET -484.075
-#define DEFAULT_SENSITIVITY 0.0000575
-#define CALIBRARION_FILE_NAME "load_cell_calibration.txt"
+					#include "hardware/flash.h"
+					#include "pico/stdlib.h"
+					#include "hardware/irq.h"
+					#include "hardware/sync.h"
+
+#include "UserConfig.hpp"
 
 class Balance
 {

@@ -18,7 +18,6 @@
 #include <iomanip>
 #include <sstream>
 #include <iostream>
-#define PRINT_DEBUG
 
 using namespace pimoroni;
 
