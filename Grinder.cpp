@@ -67,7 +67,7 @@ void Grinder::grind(void)
 
 	print_debug("grind : init mass");
 	initial_mass_g = balance->get_mass();
-	initial_mass_g = 0; //to remove
+	//initial_mass_g = 0; //to remove
 
 	print_debug("grind : debourage");
 	stepper->set_accell(5000);
@@ -80,21 +80,21 @@ void Grinder::grind(void)
 
 	print_debug("grind : first grind");
 	stepper->set_accell(300);
-	Grinder::grind_until(4, initial_mass_g + this->_coffee_mass_g - 1, 500, initial_mass_g); //brew coarsly and leave 1g
+	Grinder::grind_until(100, initial_mass_g + this->_coffee_mass_g - 2, 500, initial_mass_g); //brew coarsly and leave 1g
 
 	print_debug("grind : second grind");
 	stepper->set_accell(500);
-	Grinder::grind_until(1, initial_mass_g + this->_coffee_mass_g, 100, initial_mass_g); //brew coarsly and leave 1g
+	Grinder::grind_until(100, initial_mass_g + this->_coffee_mass_g - 1, 100, initial_mass_g); //brew coarsly and leave 1g
 
 	print_debug("grind : second grind");
 	stepper->set_accell(500);
-	Grinder::grind_until(1, initial_mass_g + this->_coffee_mass_g, 100, initial_mass_g); //brew coarsly and leave 1g
+	Grinder::grind_until(100, initial_mass_g + this->_coffee_mass_g, 100, initial_mass_g); //brew coarsly and leave 1g
 
 	print_debug("grind : show result");
 	float final_mass;
 	while (!interface->button_clicked())
 	{
-		final_mass = balance->get_averaged_mass(100) - initial_mass_g;
+		final_mass = balance->get_averaged_mass(2) - initial_mass_g;
 		interface->print_coffee_mass(final_mass, "Grinded mass :");
 	}
 	print_debug("grind return");
@@ -154,7 +154,7 @@ void	Grinder::grind_until(float duration_s, float mass_target_g, int speed_rpm, 
 	begin = get_absolute_time();
 	//clock_t time = 0.0;
 	//clock_t time_ref = clock();
-	float mass = 0.0;
+	float mass = -100.0;
 	float i = initial_mass_g; // to remove
 
 	print_debug("grind until : set speed");
@@ -163,9 +163,9 @@ void	Grinder::grind_until(float duration_s, float mass_target_g, int speed_rpm, 
 	print_debug("grind until : loop");
 	while (1)
 	{
-		if (duration_s && elapsed >= duration_s)
+		if (duration_s > 0.0f && elapsed >= duration_s)
 			break;
-		if (mass_target_g && mass >= mass_target_g)
+		if (mass_target_g > 0.0f && mass >= mass_target_g)
 			break;
 		this->_interface->print_coffee_mass(mass - initial_mass_g, "Grinding...");
 		end = get_absolute_time();

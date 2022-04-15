@@ -17,15 +17,15 @@
 //#define PRINT_DEBUG
 
 //Balance.hpp
-	#define DEFAULT_OFFSET -484.075
-	#define DEFAULT_SENSITIVITY 0.0000575
+	#define DEFAULT_OFFSET 479.076
+	#define DEFAULT_SENSITIVITY -0.0000586143
 	#define CALIBRARION_FILE_NAME "load_cell_calibration.txt"
 
 	#define FLASH_TARGET_OFFSET (256 * 1024)
 
 //Hx711.hpp
-	#define PD_SCK_GPIO 5 //GPIO pin for clock
-	#define DOUT_GPIO 4 //GPIO pin for data reading
+	#define PD_SCK_GPIO 1 //GPIO pin for clock
+	#define DOUT_GPIO 2 //GPIO pin for data reading
 	#define GAIN 128
 	#define T1 1
 	#define T2 0.1 // not used
@@ -34,8 +34,8 @@
 
 //Stepper.hpp
 	//GPIO pins data
-	#define PUL_GPIO 2
-	#define ENA_GPIO 1
+	#define PUL_GPIO 4
+	#define ENA_GPIO 5
 	#define DIR_GPIO 3
 
 	//raspberry pi pico PWM data
