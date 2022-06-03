@@ -6,7 +6,7 @@
 /*   By: sameye <sameye@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 15:24:51 by sameye            #+#    #+#             */
-/*   Updated: 2022/03/10 11:20:16 by sameye           ###   ########.fr       */
+/*   Updated: 2022/06/03 05:43:14 by sameye           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 #include "UserInterface.hpp"
 #include "Grinder.hpp"
 #include "Balance.hpp"
+
+
 
 int main()
 {
@@ -97,8 +99,7 @@ int main()
 */
 
 
-
-
+	grinder.song();
 	//loop
 	//MAIN
 	std::stringstream mass_str_stream;

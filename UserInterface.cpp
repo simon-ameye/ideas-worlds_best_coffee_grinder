@@ -226,3 +226,14 @@ char UserInterface::button_clicked(void)
 	//print_debug("button clicked return");
 	return (button);
 }
+
+void UserInterface::play_note(int frequency, float duty)
+{
+	if (duty == 0)
+	{
+		this->_pico_explorer->set_tone(0, 0);
+		return ;
+	}
+	this->_pico_explorer->set_audio_pin(_pico_explorer->GP0);
+	this->_pico_explorer->set_tone(frequency, 0.5);
+}

@@ -14,7 +14,7 @@
 #define USERCONFIG_HPP
 
 //Show debug messages
-//#define PRINT_DEBUG
+#define PRINT_DEBUG
 
 //Balance.hpp
 	#define DEFAULT_OFFSET 479.076

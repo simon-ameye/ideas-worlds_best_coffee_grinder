@@ -30,6 +30,7 @@ class Stepper
 	void disable(void);
 	void set_accell(int accell_rpm_s);
 	void print_status(void);
+	void set_hard_frequency(int frequency);
 
 	private:
 	uint _channel;
@@ -37,7 +38,7 @@ class Stepper
 	uint _accell_rpm_s;
 	int  _speed_rpm;
 	void _speed_ramp(int speed_rmp);
-	void _set_wrap(int wrap, int freq, int sleep_per_step_us);
+	void _set_wrap(int freq, int sleep_per_step_us);
 	void _set_direction(int dir);
 };
 #endif

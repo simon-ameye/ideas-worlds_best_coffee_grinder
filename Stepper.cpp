@@ -76,7 +76,7 @@ void Stepper::_speed_ramp(int speed_rpm)
 	int sleep_per_step_us;
 	int nb_of_steps;
 	float total_time;
-	int wrap;
+	//int wrap;
 
 	print_debug("speed ramp : calculation");
 	start_freq_s = abs(this->_speed_rpm) * STEPS_PER_REV / 60;
@@ -101,20 +101,21 @@ void Stepper::_speed_ramp(int speed_rpm)
 	if (start_freq_s < end_freq_s)
 	{
 		for(int freq = start_freq_s; freq <= end_freq_s; freq++)
-			Stepper::_set_wrap(wrap, freq, sleep_per_step_us);
+			Stepper::_set_wrap(freq, sleep_per_step_us);
 	}
 	else
 	{
 		for(int freq = start_freq_s; freq >= end_freq_s; freq--)
-			Stepper::_set_wrap(wrap, freq, sleep_per_step_us);
+			Stepper::_set_wrap(freq, sleep_per_step_us);
 	}
 	this->_speed_rpm = speed_rpm;
 	print_debug("speed ramp return");
 }
 
-void Stepper::_set_wrap(int wrap, int freq, int sleep_per_step_us)
+void Stepper::_set_wrap(int freq, int sleep_per_step_us)
 {
 	//print_debug("set wrap call");
+	int wrap;
 	wrap = CLOCK / DIVIDER / freq;
 	if (wrap > MAXWRAP)
 		wrap = MAXWRAP;
@@ -174,4 +175,17 @@ void Stepper::print_status(void)
 	std::cout<< "    _accell_rpm_s : "	<< this->_accell_rpm_s	<< std::endl;
 	std::cout<< "    _speed_rpm : "	<< this->_speed_rpm		<< std::endl;
 	std::cout<< std::endl;
+}
+
+
+void Stepper::set_hard_frequency(int frequency)
+{
+
+	Stepper::enable();
+	Stepper::_set_direction(frequency);
+
+	_set_wrap(abs(frequency), 0);
+
+	if (frequency == 0)
+		Stepper::disable();
 }

@@ -33,6 +33,8 @@ class UserInterface
 	void print_coffee_mass(float mass, std::string str);
 	char button_clicked(void);
 
+	void play_note(int frequency, float duty);
+
 	private:
 	PicoExplorer *_pico_explorer;
 	char _button_click(void);

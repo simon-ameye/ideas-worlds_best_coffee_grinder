@@ -37,6 +37,8 @@ class Balance
 	void			set_calibration(float offcet, float sensitivity);
 	float			get_averaged_mass(int samples);
 	void			print_balance_data();
+	float			get_sensivity();
+	float			get_offset();
 
 	private:
 	void	_save_calibration(void);
