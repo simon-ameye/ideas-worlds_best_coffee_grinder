@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 
+#include (/Users/speedhacker/pico/libs/pico-sdk/external/pico_sdk_import.cmake)
+
 include(pico_sdk_import.cmake)
 include(pimoroni_pico_import.cmake)
+
 
 project(Grinder)
 
@@ -27,7 +30,7 @@ add_executable(
 pico_add_extra_outputs(Grinder)
 
 #target_link_libraries(explorer pico_stdlib pico_explorer msa301)
-target_link_libraries(Grinder pico_stdlib pico_explorer hardware_pio pico_multicore)
+target_link_libraries(Grinder pico_stdlib pico_explorer hardware_pio hardware_flash hardware_sync)
 
 add_subdirectory(/Users/speedhacker/pico/libs/pimoroni-pico/common pimoroni-common)
 add_subdirectory(/Users/speedhacker/pico/libs/pimoroni-pico/drivers pimoroni-drivers)

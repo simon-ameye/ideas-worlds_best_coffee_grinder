@@ -19,7 +19,7 @@
 #include "UserInterface.hpp"
 #include "Balance.hpp"
 
-#define DEFAULT_COFFEE_MASS_G 9.00;
+#include "UserConfig.hpp"
 
 class Grinder
 {
@@ -29,12 +29,18 @@ class Grinder
 	float	get_coffee_mass_g(void);
 	void	grind(void);
 	void	calibrate(void);
-	void	grind_until(float duration_s, float mass_target_g, int speed_rpm, float initial_mass_g);
+	void	tare(void);
+	void	print_averaged_mass(int nb_samples);
+	void	show_data(void);
+
+	int		note(int n, int i);
+	void	song(void);
 
 	private:
 	float	_coffee_mass_g;
 	Stepper	*_stepper;
 	UserInterface *_interface;
 	Balance	*_balance;
+	void	grind_until(float duration_s, float mass_target_g, int speed_rpm);
 };
 #endif
