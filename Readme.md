@@ -1,4 +1,4 @@
-# World's best coffee grinder (I guess)
+# World's best coffee grinder
 Hi there ! This is a preview of my coffee grinder project.
 
 The aim is to drive my manual coffee grinder in order to get a precise amount of ground coffee.
