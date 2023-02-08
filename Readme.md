@@ -1,4 +1,4 @@
-WARNING ! I developed projects before following the CPP projects of 42. The standard and the style may shock :)
+WARNING ! I developed this projects before following the C++ projects at 42. The standard and the style may shock :)
 
 # World's best coffee grinder
 Hi there ! This is a preview of my coffee grinder project.
