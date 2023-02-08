@@ -1,3 +1,5 @@
+I developed projects before following the CPP projects of 42. The standard and the style may shock :)
+
 # World's best coffee grinder
 Hi there ! This is a preview of my coffee grinder project.
 
